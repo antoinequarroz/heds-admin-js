@@ -24,26 +24,26 @@ var Paths = {
 // Compile sass into CSS
 gulp.task('sass', function() {
     return gulp.src(Paths.SCSS)
-      .pipe(sourcemaps.init())
-      .pipe(sass.sync({
-          outputStyle: 'expanded'
-      }).on('error', sass.logError)) 
-      .pipe(autoprefixer({
-          overrideBrowserslist: ['last 2 versions']
-      }))
-      .pipe(gulp.dest(Paths.CSS))
-      .pipe(gulpif(enableRTL, rtlcss()))
-      .pipe(gulpif(enableRTL, rename({ suffix: '-rtl' })))
-      .pipe(sourcemaps.write('.'))
-      .pipe(gulp.dest(Paths.CSS))
-      .pipe(browserSync.stream());
+        .pipe(sourcemaps.init())
+        .pipe(sass.sync({
+            outputStyle: 'expanded'
+        }).on('error', sass.logError))
+        .pipe(autoprefixer({
+            overrideBrowserslist: ['last 2 versions']
+        }))
+        .pipe(gulp.dest(Paths.CSS))
+        .pipe(gulpif(enableRTL, rtlcss()))
+        .pipe(gulpif(enableRTL, rename({ suffix: '-rtl' })))
+        .pipe(sourcemaps.write('.'))
+        .pipe(gulp.dest(Paths.CSS))
+        .pipe(browserSync.stream());
 });
 
 
 // Static Server
 gulp.task('serve', function(done) {
     browserSync.init({
-      server: Paths.TEMPLATE
+        server: Paths.TEMPLATE
     });
     done();
 });
