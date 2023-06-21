@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import axios from 'axios'; // Make sure you have installed axios with `npm install axios`
+import axios from 'axios';
 
 export default {
   name: "MaterialList",
@@ -47,16 +47,14 @@ export default {
       courses: []
     }
   },
-  async created() {
-    try {
-      const response = await axios.get('https://your-api-endpoint/courses');
-      this.courses = response.data;
-    } catch (error) {
-      console.error(error);
-    }
+  created() {
+    axios.get('http://localhost:3000/courses')
+        .then(response => this.courses = response.data)
+        .catch(error => console.error(error));
   }
 }
 </script>
+
 
 <style scoped>
 /* Ajoutez vos styles CSS ici si nécessaire */
