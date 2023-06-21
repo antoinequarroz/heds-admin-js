@@ -8,7 +8,7 @@ const routes = [
     { path: '/', component: HomePage },
     { path: '/material', component: MaterialList },
     { path: '/scenario', component: ScenarioList },
-    { path: '/calendar', component: EventList }
+    { path: '/event', component: EventList }
     // ... autres routes si nécessaires
 ]
 

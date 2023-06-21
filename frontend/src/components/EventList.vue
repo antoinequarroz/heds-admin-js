@@ -1,9 +1,38 @@
 <template>
+  <div class="container">
+    <!-- Title -->
+    <div class="row mb-4">
+      <div class="col-lg-8 mx-auto text-center">
+        <h2 class="fs-1">Calendrier</h2>
+        <p class="mb-0">Calendrier des simulations et des events de l'école</p>
+      </div>
+    </div>
+
+    <!-- Tabs START -->
+    <ul class="nav nav-pills nav-pills-bg-soft justify-content-sm-center mb-4 px-3" id="course-pills-tab" role="tablist">
+      <!-- Tab item -->
+      <li class="nav-item me-2 me-sm-5">
+        <button class="nav-link mb-2 mb-md-0 active" id="course-pills-tab-1" data-bs-toggle="pill" data-bs-target="#course-pills-tabs-1" type="button" role="tab" aria-controls="course-pills-tabs-1" aria-selected="false">Simulations</button>
+      </li>
+      <!-- Tab item -->
+      <li class="nav-item me-2 me-sm-5">
+        <button class="nav-link mb-2 mb-md-0" id="course-pills-tab-2" data-bs-toggle="pill" data-bs-target="#course-pills-tabs-2" type="button" role="tab" aria-controls="course-pills-tabs-2"	aria-selected="false">Events</button>
+      </li>
+    </ul>
+    <!-- Tabs END -->
+
+    <div class="d-md-flex justify-content-md-between align-items-center">
+      <span></span>
+      <div>
+        <a href="#" class="btn btn-sm btn-primary-soft mb-0">En savoir plus<i class="fas fa-angle-right ms-2"></i></a>
+      </div>
+    </div>
+    <br>
   <!-- omitting other part for brevity -->
   <div class="tab-pane fade show active" id="event-pills-tabs-1" role="tabpanel" aria-labelledby="event-pills-tab-1">
     <div class="row g-4">
       <!-- Card item START -->
-      <div class="col-sm-6 col-lg-4 col-xl-3" v-for="event in events" :key="event.id">
+      <div class="col-sm-6 col-lg-4 col-xl-3" v-for="(event, index) in events" :key="event.id" v-if="index < limit">
         <div class="card shadow h-100">
           <!-- Image -->
           <img :src="event.image" class="card-img-top" alt="event image">
@@ -35,6 +64,7 @@
       <!-- Card item END -->
     </div>
   </div>
+  </div>
 </template>
 
 <script>
@@ -42,6 +72,12 @@ import axios from 'axios';
 
 export default {
   name: "EventList",
+  props: {
+    limit: {
+      type: Number,
+      default: Infinity,
+    }
+  },
   data() {
     return {
       events: []

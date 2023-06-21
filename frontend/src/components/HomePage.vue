@@ -1,9 +1,9 @@
 <template>
   <div>
     <InformationView />
-    <MaterialList />
-    <ScenarioList />
-    <EventList />
+    <MaterialList :limit="12" />
+    <ScenarioList :limit="12" />
+    <EventList :limit="12"/>
   </div>
 </template>
 
