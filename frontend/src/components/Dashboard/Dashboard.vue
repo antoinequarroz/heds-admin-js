@@ -21,13 +21,22 @@
 
 
             <!-- menu item 2 -->
-            <li class="nav-item"> <a class="nav-link" href="#"><i class="fas fa-regular fa-box fa-fw me-2"></i>Materiel</a></li>
+            <li class="nav-item"> <a class="nav-link" :href="materialListPath"><i class="fas fa-regular fa-box fa-fw me-2"></i>Materiel</a></li>
 
             <!-- Menu item 3 -->
-            <li class="nav-item"> <a class="nav-link" href="#"><i class="fas fa-regular fa-pager fa-fw me-2"></i>Scénario</a></li>
+            <li class="nav-item"> <a class="nav-link" :href="scenarioListPath"><i class="fas fa-regular fa-pager fa-fw me-2"></i>Scénario</a></li>
 
             <!-- Menu item 4 -->
-            <li class="nav-item"> <a class="nav-link" href="#"><i class="fas fa-calendar-day fa-fw me-2"></i>Calendrier</a></li>
+            <li class="nav-item"> <a class="nav-link" :href="eventListPath"><i class="fas fa-calendar-day fa-fw me-2"></i>Calendrier</a></li>
+
+            <!-- Menu item 6 -->
+            <li class="nav-item"> <a class="nav-link" href="#"><i class="fas fa-align-center fa-fw me-2"></i>Statistiques</a></li>
+
+            <!-- Menu item 6 -->
+            <li class="nav-item"> <a class="nav-link" href="#"><i class="fas fa-user fa-fw me-2"></i>Utilisateurs</a></li>
+
+            <!-- Menu item 7 -->
+            <li class="nav-item"> <a class="nav-link" href="#"><i class="fas fa-question fa-fw me-2"></i>FAQ's</a></li>
 
           </ul>
           <!-- Sidebar menu end -->
@@ -68,7 +77,7 @@
 
         <div class="row g-4">
           <TeamSection/>
-
+          <FaqBox/>
         </div>
 
       </div>
@@ -84,10 +93,19 @@
 import CounterBoxes from "./DashboardItems/CounterBoxes.vue";
 import StatsBox from "./DashboardItems/StatsBox.vue";
 import TeamSection from "./DashboardItems/TeamSection.vue";
+import FaqBox from "./DashboardItems/FaqBox.vue";
 
 export default {
   name: 'Dashboard',
+  data() {
+    return {
+      materialListPath: "/material_list",
+      scenarioListPath: "/scenario_list",
+      eventListPath: "/event_list",
+    }
+  },
   components: {
+    FaqBox,
     TeamSection,
     StatsBox,
     CounterBoxes

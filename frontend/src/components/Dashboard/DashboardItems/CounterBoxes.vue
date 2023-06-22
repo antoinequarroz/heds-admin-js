@@ -4,7 +4,7 @@
       <div class="card card-body p-4 h-100" :class="box.bgClass">
         <div class="d-flex justify-content-between align-items-center">
           <div>
-            <h2 class="purecounter mb-0 fw-bold" :data-purecounter-start="box.start" :data-purecounter-end="box.end" data-purecounter-delay="200">0</h2>
+            <h2 class="purecounter mb-0 fw-bold" :data-purecounter-start="box.start" :data-purecounter-end="box.end" :data-purecounter-duration="1.0">0</h2>
             <span class="mb-0 h6 fw-light">{{ box.title }}</span>
           </div>
           <div class="icon-lg rounded-circle text-white mb-0" :class="box.iconBgClass">
@@ -28,6 +28,9 @@ export default {
         { start: 0, end: 845, title: 'Total des heures', bgClass: 'bg-success bg-opacity-10', iconClass: 'bi bi-stopwatch-fill fa-fw', iconBgClass: 'bg-success' },
       ],
     }
+  },
+  mounted() {
+    new PureCounter();
   }
 }
 </script>

@@ -5,12 +5,13 @@
       <!-- Card header -->
       <div class="card-header border-bottom d-flex justify-content-between align-items-center p-4">
         <h5 class="card-header-title">Team Simulation</h5>
+        <a href="#" class="btn btn-link p-0 mb-0">Voir</a>  <!-- Ajouter un lien vers la page FAQ -->
       </div>
       <!-- Card body START -->
       <div class="card-body p-4">
         <!-- Instructor item START -->
         <div
-            class="d-sm-flex justify-content-between align-items-center"
+            class="team-member d-sm-flex justify-content-between align-items-center"
             v-for="(teamMember, index) in teamMembers"
             :key="index"
         >
@@ -28,8 +29,6 @@
               </ul>
             </div>
           </div>
-          <!-- Divider -->
-          <hr v-if="index < teamMembers.length - 1">
         </div>
         <!-- Instructor item END -->
       </div>
@@ -44,9 +43,11 @@ export default {
   name: 'TeamSection',
   data() {
     return {
+      // api vers la liste des profs
       teamMembers: [
         { name: 'Alain Berard', role: 'Coordinateur', avatarUrl: 'assets/images/avatar/09.jpg' },
         { name: 'Antoine Quarroz', role: 'Médiamaticien', avatarUrl: 'assets/images/avatar/03.jpg' },
+        { name: 'Antoine Quarroz', role: 'Médiamaticien', avatarUrl: 'assets/images/avatar/01.jpg' },
         { name: 'Antoine Quarroz', role: 'Médiamaticien', avatarUrl: 'assets/images/avatar/01.jpg' },
         // ajoutez plus de membres d'équipe comme nécessaire
       ],
@@ -56,5 +57,9 @@ export default {
 </script>
 
 <style scoped>
-/* Ajoutez vos styles CSS ici si nécessaire */
+.team-member:not(:last-child) {
+  border-bottom: 1px solid #ddd;  /* ajustez la couleur et l'épaisseur de la bordure selon vos préférences */
+  padding-bottom: 1em;  /* ajoutez un espace en dessous de chaque membre de l'équipe pour simuler l'espace qu'un <hr> aurait créé */
+  margin-bottom: 1em;
+}
 </style>

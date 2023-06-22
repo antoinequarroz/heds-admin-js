@@ -9,9 +9,9 @@
 
 <script>
 import InformationView from "./InformationView.vue";
-import MaterialList from "./MaterialList.vue";
-import ScenarioList from "./ScenarioList.vue";
-import EventList from "./EventList.vue";
+import MaterialList from "./Material.vue";
+import ScenarioList from "./Scenario.vue";
+import EventList from "./Event.vue";
 
 export default {
   name: "HomePage",
