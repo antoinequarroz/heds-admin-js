@@ -1,12 +1,12 @@
 <template>
-  <div className="row g-4 mb-4">
-    <div className="col-xxl-12">
-      <div className="card shadow h-100">
-        <div className="card-header p-4 border-bottom">
-          <h5 className="card-header-title">Stats</h5>
+  <div class="row g-4 mb-4">
+    <div class="col-xxl-12">
+      <div class="card shadow h-100">
+        <div class="card-header p-4 border-bottom">
+          <h5 class="card-header-title">{{ chartTitle }}</h5>
         </div>
-        <div className="card-body chart-container">
-          <div id="ChartPayout"></div>
+        <div class="card-body chart-container">
+          <div :id="`ChartPayout-${chartId}`"></div>
         </div>
       </div>
     </div>
@@ -16,35 +16,38 @@
 <script>
 export default {
   name: 'StatsBox',
+  props: {
+    chartId: {
+      type: Number,
+      required: true
+    },
+    chartData: {
+      type: Array,
+      required: true
+    },
+    chartTitle: {
+      type: String,
+      default: "Stats"
+    }
+  },
   mounted() {
     const options = {
       chart: {
         type: 'line',
         height: 300  // ajuster la hauteur ici
       },
-      series: [
-        {
-          name: "Simulations",
-          data: [10, 41, 35, 51, 49, 62, 69, 91, 148, 12, 4, 4]
-        },
-        {
-          name: "Heures",
-          data: [12, 32, 23, 75, 49, 52, 69, 51, 38, 120, 84, 4]
-        },
-
-      ],
+      series: this.chartData,
       xaxis: {
         categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", 'Dec']
       }
     };
 
-    new window.ApexCharts(document.querySelector("#ChartPayout"), options).render();
+    new window.ApexCharts(document.querySelector(`#ChartPayout-${this.chartId}`), options).render();
   }
 };
 </script>
 
 <style scoped>
-/* Ajuster la hauteur du conteneur du graphique ici */
 .chart-container {
   height: 320px;
 }

@@ -30,13 +30,13 @@
             <li class="nav-item"> <a class="nav-link" :href="eventListPath"><i class="fas fa-calendar-day fa-fw me-2"></i>Calendrier</a></li>
 
             <!-- Menu item 6 -->
-            <li class="nav-item"> <a class="nav-link" href="#"><i class="fas fa-align-center fa-fw me-2"></i>Statistiques</a></li>
+            <li class="nav-item"> <a class="nav-link" :href="statistiquesPath"><i class="fas fa-align-center fa-fw me-2"></i>Statistiques</a></li>
 
             <!-- Menu item 6 -->
-            <li class="nav-item"> <a class="nav-link" href="#"><i class="fas fa-user fa-fw me-2"></i>Utilisateurs</a></li>
+            <li class="nav-item"> <a class="nav-link"><i class="fas fa-user fa-fw me-2"></i>Utilisateurs</a></li>
 
             <!-- Menu item 7 -->
-            <li class="nav-item"> <a class="nav-link" href="#"><i class="fas fa-question fa-fw me-2"></i>FAQ's</a></li>
+            <li class="nav-item"> <a class="nav-link" :href="faqPath"><i class="fas fa-question fa-fw me-2"></i>FAQ's</a></li>
 
           </ul>
           <!-- Sidebar menu end -->
@@ -72,8 +72,8 @@
             <h1 class="h3 mb-2 mb-sm-0">Dashboard</h1>
           </div>
         </div>
-            <CounterBoxes/>
-            <StatsBox/>
+        <CounterBoxes/>
+        <StatsBox :chartId="'1'" :chartData="charts[0]" :chartTitle="`Stats 1`" />
 
         <div class="row g-4">
           <TeamSection/>
@@ -99,9 +99,24 @@ export default {
   name: 'Dashboard',
   data() {
     return {
+      charts: [
+        [
+          {
+            name: "Simulations",
+            data: [10, 41, 35, 51, 49, 62, 69, 91, 148, 12, 4, 4]
+          },
+          {
+            name: "Heures",
+            data: [12, 32, 23, 75, 49, 52, 69, 51, 38, 120, 84, 4]
+          }
+        ],
+        // plus de données de graphique ici si nécessaire
+      ],
       materialListPath: "/material_list",
       scenarioListPath: "/scenario_list",
       eventListPath: "/event_list",
+      statistiquesPath: "/statistiques",
+      faqPath: "/faq",
     }
   },
   components: {

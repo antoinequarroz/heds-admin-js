@@ -7,6 +7,8 @@ import Dashboard from "./components/Dashboard/Dashboard.vue";
 import MaterialList from "./components/Dashboard/List/MaterialList.vue";
 import ScenarioList from "./components/Dashboard/List/ScenarioList.vue";
 import EventList from "./components/Dashboard/List/EventList.vue";
+import StatistiquesPage from "./components/Dashboard/StatistiquesPage.vue";
+import Faq from "./components/Dashboard/Faq.vue";
 
 const routes = [
     { path: '/', component: HomePage },
@@ -16,7 +18,9 @@ const routes = [
     { path: '/admin', component: Dashboard },
     { path: '/material_list', component: MaterialList },
     { path: '/scenario_list', component: ScenarioList },
-    { path: '/event_list', component: EventList }
+    { path: '/event_list', component: EventList },
+    { path: '/statistiques', component: StatistiquesPage },
+    { path: '/faq', component: Faq }
 
     // ... autres routes si nécessaires
 ]
