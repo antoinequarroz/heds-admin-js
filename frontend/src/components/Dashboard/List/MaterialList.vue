@@ -6,9 +6,10 @@
           <div class="card-body">
             <div class="d-flex justify-content-between align-items-center">
               <h1 class="h3 mb-2">Liste des matériaux</h1>
+              <p class="mb-2">Il y a {{materials.length}} matériels d'enregistrés dans la base de données</p>
               <div>
-                <button class="btn btn-sm btn-primary-soft" @click="addMaterial">Ajouter du matériel</button>
-                <button class="btn btn-sm btn-secondary" @click="goBack">Retour</button>
+                <button class="btn btn-sm btn-primary-soft m-1" @click="addMaterial">Ajouter du matériel</button>
+                <button class="btn btn-sm btn-secondary m-1" @click="goBack">Retour</button>
               </div>
             </div>
             <div class="table-responsive mt-3">
@@ -26,37 +27,19 @@
                 <tbody>
                 <tr v-for="material in materials" :key="material.id">
                   <td>
-                    <div class="w-60px">
-                      <img :src="'assets/images/uploads/materials/' + material.filename" :alt="material.filename"  class="card-img-top" />
-                    </div>
+                    <img class="w-60px card-img-top" :src="'src/assets/images/uploads/materials/' + material.filename" :alt="material.filename" />
                   </td>
                   <td>
-                    <div class="d-flex align-items-center position-relative">
-                      <h6 class="table-responsive-title mb-0 ms-2">
-                        {{ material.id }}
-                      </h6>
-                    </div>
+                    <h6 class="table-responsive-title mb-0 ms-2">{{ material.id }}</h6>
                   </td>
                   <td>
-                    <div class="d-flex align-items-center position-relative">
-                      <h6 class="table-responsive-title mb-0 ms-2">
-                        {{ material.titre }}
-                      </h6>
-                    </div>
+                    <h6 class="table-responsive-title mb-0 ms-2">{{ material.titre }}</h6>
                   </td>
                   <td>
-                    <div class="d-flex align-items-center position-relative">
-                      <h6 class="table-responsive-title mb-0 ms-2">
-                        {{ material.salle }}
-                      </h6>
-                    </div>
+                    <h6 class="table-responsive-title mb-0 ms-2">{{ material.salle }}</h6>
                   </td>
                   <td>
-                    <div class="d-flex align-items-center position-relative">
-                      <h6 class="table-responsive-title mb-0 ms-2">
-                        {{ material.nombre }}
-                      </h6>
-                    </div>
+                    <h6 class="table-responsive-title mb-0 ms-2">{{ material.nombre }}</h6>
                   </td>
                   <td>
                     <button class="btn btn-sm btn-warning-soft me-1 mb-1 mb-md-0" @click="viewDetails(material.id)">Détails</button>
@@ -79,24 +62,31 @@ export default {
   name: 'MaterialList',
   data() {
     return {
-      materials: [] // Your data goes here
+      materials: [
+        { id: 1, titre: 'Matériel 1', salle: 'Salle A', nombre: 5, filename: 'material3.jpg' },
+        { id: 2, titre: 'Matériel 2', salle: 'Salle B', nombre: 7, filename: 'material2.jpg' },
+        { id: 3, titre: 'Matériel 3', salle: 'Salle C', nombre: 10, filename: 'material3.jpg' },
+        { id: 4, titre: 'Matériel 4', salle: 'Salle D', nombre: 230, filename: 'material2.jpg' },
+        // Ajoutez plus de matériaux ici...
+      ],
+      homePath: '/dashboard',
     }
   },
   methods: {
     addMaterial() {
-      // Implement your method to add a material here
+      console.log('Ajouter du matériel');
     },
     goBack() {
-      // Implement your method to navigate back here
+      console.log('Retour');
     },
     viewDetails(id) {
-      // Implement your method to view details of a material here
+      console.log('Voir les détails du matériel avec id:', id);
     },
     editMaterial(id) {
-      // Implement your method to edit a material here
+      console.log('Modifier le matériel avec id:', id);
     },
     deleteMaterial(id) {
-      // Implement your method to delete a material here
+      console.log('Supprimer le matériel avec id:', id);
     }
   }
 }

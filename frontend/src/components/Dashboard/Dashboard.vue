@@ -33,7 +33,7 @@
             <li class="nav-item"> <a class="nav-link" :href="statistiquesPath"><i class="fas fa-align-center fa-fw me-2"></i>Statistiques</a></li>
 
             <!-- Menu item 6 -->
-            <li class="nav-item"> <a class="nav-link"><i class="fas fa-user fa-fw me-2"></i>Utilisateurs</a></li>
+            <li class="nav-item"> <a class="nav-link" :href="userPath"><i class="fas fa-user fa-fw me-2"></i>Utilisateurs</a></li>
 
             <!-- Menu item 7 -->
             <li class="nav-item"> <a class="nav-link" :href="faqPath"><i class="fas fa-question fa-fw me-2"></i>FAQ's</a></li>
@@ -117,6 +117,7 @@ export default {
       eventListPath: "/event_list",
       statistiquesPath: "/statistiques",
       faqPath: "/faq",
+      userPath: "/user",
     }
   },
   components: {

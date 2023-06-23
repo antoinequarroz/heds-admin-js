@@ -9,6 +9,7 @@ import ScenarioList from "./components/Dashboard/List/ScenarioList.vue";
 import EventList from "./components/Dashboard/List/EventList.vue";
 import StatistiquesPage from "./components/Dashboard/StatistiquesPage.vue";
 import Faq from "./components/Dashboard/Faq.vue";
+import User from "./components/Dashboard/User.vue";
 
 const routes = [
     { path: '/', component: HomePage },
@@ -20,7 +21,8 @@ const routes = [
     { path: '/scenario_list', component: ScenarioList },
     { path: '/event_list', component: EventList },
     { path: '/statistiques', component: StatistiquesPage },
-    { path: '/faq', component: Faq }
+    { path: '/faq', component: Faq },
+    { path: '/user', component: User }
 
     // ... autres routes si nécessaires
 ]
