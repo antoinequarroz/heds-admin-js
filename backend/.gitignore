@@ -23,4 +23,5 @@ dist-ssr
 *.sw?
 
 # Add this line at the end
+#Test
 .env
