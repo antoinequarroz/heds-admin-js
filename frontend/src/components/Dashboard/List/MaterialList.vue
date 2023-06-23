@@ -25,26 +25,26 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr v-for="material in materials" :key="material.id">
+                <tr v-for="material in materials" :key="material.matId">
                   <td>
-                    <img class="w-60px card-img-top" :src="'src/assets/images/uploads/materials/' + material.filename" :alt="material.filename" />
+                    <img class="w-60px card-img-top" :src="'src/assets/images/uploads/materials/' + material.matImage" :alt="material.matImage" />
                   </td>
                   <td>
-                    <h6 class="table-responsive-title mb-0 ms-2">{{ material.id }}</h6>
+                    <h6 class="table-responsive-title mb-0 ms-2">{{ material.matId }}</h6>
                   </td>
                   <td>
-                    <h6 class="table-responsive-title mb-0 ms-2">{{ material.titre }}</h6>
+                    <h6 class="table-responsive-title mb-0 ms-2">{{ material.matTitre }}</h6>
                   </td>
                   <td>
-                    <h6 class="table-responsive-title mb-0 ms-2">{{ material.salle }}</h6>
+                    <h6 class="table-responsive-title mb-0 ms-2">{{ material.salTitre }}</h6>
                   </td>
                   <td>
-                    <h6 class="table-responsive-title mb-0 ms-2">{{ material.nombre }}</h6>
+                    <h6 class="table-responsive-title mb-0 ms-2">{{ material.matNombre }}</h6>
                   </td>
                   <td>
-                    <button class="btn btn-sm btn-warning-soft me-1 mb-1 mb-md-0" @click="viewDetails(material.id)">Détails</button>
-                    <button class="btn btn-sm btn-success-soft me-1 mb-1 mb-md-0" @click="editMaterial(material.id)">Modifier</button>
-                    <button class="btn btn-sm btn-danger-soft mb-0" @click="deleteMaterial(material.id)">Supprimer</button>
+                    <button class="btn btn-sm btn-warning-soft me-1 mb-1 mb-md-0" @click="viewDetails(material.matId)">Détails</button>
+                    <button class="btn btn-sm btn-success-soft me-1 mb-1 mb-md-0" @click="editMaterial(material.matId)">Modifier</button>
+                    <button class="btn btn-sm btn-danger-soft mb-0" @click="deleteMaterial(material.matId)">Supprimer</button>
                   </td>
                 </tr>
                 </tbody>
@@ -59,38 +59,20 @@
 
 <script>
 export default {
-  name: 'MaterialList',
   data() {
     return {
-      materials: [
-        { id: 1, titre: 'Matériel 1', salle: 'Salle A', nombre: 5, filename: 'material3.jpg' },
-        { id: 2, titre: 'Matériel 2', salle: 'Salle B', nombre: 7, filename: 'material2.jpg' },
-        { id: 3, titre: 'Matériel 3', salle: 'Salle C', nombre: 10, filename: 'material3.jpg' },
-        { id: 4, titre: 'Matériel 4', salle: 'Salle D', nombre: 230, filename: 'material2.jpg' },
-        // Ajoutez plus de matériaux ici...
-      ],
-      homePath: '/dashboard',
-    }
+      materials: []
+    };
   },
-  methods: {
-    addMaterial() {
-      console.log('Ajouter du matériel');
-    },
-    goBack() {
-      console.log('Retour');
-    },
-    viewDetails(id) {
-      console.log('Voir les détails du matériel avec id:', id);
-    },
-    editMaterial(id) {
-      console.log('Modifier le matériel avec id:', id);
-    },
-    deleteMaterial(id) {
-      console.log('Supprimer le matériel avec id:', id);
-    }
+  created() {
+    fetch('http://localhost:8000/materiel')
+        .then(response => response.json())
+        .then(data => (this.materials = data))
+        .catch(error => console.log(error));
   }
-}
+};
 </script>
+
 
 <style scoped>
 /* Ajoutez vos styles CSS ici si nécessaire */

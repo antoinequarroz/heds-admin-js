@@ -66,15 +66,29 @@ export default {
   },
   methods: {
     submitForm() {
-      console.log('Formulaire soumis', this.material);
-      // Ici, vous pouvez ajouter le code pour soumettre le formulaire à votre API ou effectuer d'autres actions
+      fetch('http://localhost:8000/materiel', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(this.material),
+      })
+          .then(response => response.json())
+          .then(data => {
+            console.log('Succès:', data);
+          })
+          .catch((error) => {
+            console.error('Erreur:', error);
+          });
     },
     goBack() {
       console.log('Retour');
       // Ici, vous pouvez ajouter le code pour naviguer vers la page précédente ou effectuer d'autres actions
     }
+    // ...
   }
 };
+
 </script>
 
 <style scoped>
