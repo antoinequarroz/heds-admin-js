@@ -8,7 +8,7 @@
               <h1 class="h3 mb-2">Liste des matériaux</h1>
               <p class="mb-2">Il y a {{materials.length}} matériels d'enregistrés dans la base de données</p>
               <div>
-                <button class="btn btn-sm btn-primary-soft m-1" @click="addMaterial">Ajouter du matériel</button>
+                <router-link :to="{ name: 'MaterialForm' }" class="btn btn-sm btn-primary-soft m-1">Ajouter du matériel</router-link>
                 <button class="btn btn-sm btn-secondary m-1" @click="goBack">Retour</button>
               </div>
             </div>
