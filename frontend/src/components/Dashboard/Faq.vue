@@ -7,7 +7,7 @@
     </div>
     <div class="row">
       <div class="col-12">
-        <FaqBox />
+        <FaqBox :numQuestions="5" />
       </div>
     </div>
   </div>
