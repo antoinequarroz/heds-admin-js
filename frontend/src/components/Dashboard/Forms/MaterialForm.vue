@@ -35,32 +35,19 @@ export default {
   data() {
     return {
       material: {
-        matTitre: '',
-        matSalle: '',
-        matLien: '',
-        matNombre: '',
-        matModeEmploi: '',
-        matDescription: '',
-        matCaracteristique: '',
-        matCategorie: '',
-        matRemarque: ''
+        titre: '',
+        nombre: '',
+        description: ''
       },
       formLeft: {
-        matTitre: { label: 'Titre', type: 'text' },
-        matSalle: { label: 'Salle', type: 'text' },
-        matLocalite: { label: 'Localité', type: 'text' },
-        matRemarque: { label: 'Remarque', type: 'text' }
+        titre: { label: 'Titre', type: 'text' },
       },
       formRight: {
-        matNombre: { label: 'Nombre', type: 'number' },
-        matModeEmploi: { label: 'PDF', type: 'file' },
-        matLien: { label: 'Liens', type: 'text' },
-        matCategorie: { label: 'Catégorie', type: 'text' },
+        nombre: {label: 'Nombre', type: 'number'},
       },
       formBottom: {
-        matDescription: { label: 'Description', rows: '6' },
-        matCaracteristique: { label: 'Caractéristique', rows: '6' }
-      }
+        description: { label: 'Description', rows: 5 },
+      },
     };
   },
   methods: {
