@@ -35,32 +35,31 @@ export default {
   data() {
     return {
       material: {
-        titre: '',
-        badge: '',
-        salle: '',
-        localite: '',
-        liens: '',
-        nombre: '',
-        filename: '',
-        modeEmploi: '',
-        description: '',
-        caracteristique: ''
+        matTitre: '',
+        matSalle: '',
+        matLien: '',
+        matNombre: '',
+        matModeEmploi: '',
+        matDescription: '',
+        matCaracteristique: '',
+        matCategorie: '',
+        matRemarque: ''
       },
       formLeft: {
-        titre: { label: 'Titre', type: 'text' },
-        badge: { label: 'Badge', type: 'text' },
-        salle: { label: 'Salle', type: 'text' },
-        localite: { label: 'Localité', type: 'text' }
+        matTitre: { label: 'Titre', type: 'text' },
+        matSalle: { label: 'Salle', type: 'text' },
+        matLocalite: { label: 'Localité', type: 'text' },
+        matRemarque: { label: 'Remarque', type: 'text' }
       },
       formRight: {
-        nombre: { label: 'Nombre', type: 'number' },
-        filename: { label: 'Image', type: 'file' },
-        modeEmploi: { label: 'PDF', type: 'file' },
-        liens: { label: 'Liens', type: 'text' }
+        matNombre: { label: 'Nombre', type: 'number' },
+        matModeEmploi: { label: 'PDF', type: 'file' },
+        matLien: { label: 'Liens', type: 'text' },
+        matCategorie: { label: 'Catégorie', type: 'text' },
       },
       formBottom: {
-        description: { label: 'Description', rows: '6' },
-        caracteristique: { label: 'Caractéristique', rows: '6' }
+        matDescription: { label: 'Description', rows: '6' },
+        matCaracteristique: { label: 'Caractéristique', rows: '6' }
       }
     };
   },
@@ -73,7 +72,12 @@ export default {
         },
         body: JSON.stringify(this.material),
       })
-          .then(response => response.json())
+          .then(response => {
+            if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+          })
           .then(data => {
             console.log('Succès:', data);
           })
@@ -88,7 +92,6 @@ export default {
     // ...
   }
 };
-
 </script>
 
 <style scoped>

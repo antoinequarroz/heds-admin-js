@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 // D'autres routes ici...
 
 // Lancement du serveur
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.DB_PORT || 8000;
 app.listen(PORT, () => {
     console.log(`Serveur en cours d'exécution sur le port ${PORT}.`);
 });
@@ -29,6 +29,7 @@ const db = mysql.createPool({
     user: process.env.DB_USER,
     password: process.env.DB_PASS,
     database: process.env.DB_NAME,
+    connectTimeout: 10000 // Temps d'attente de la connexion en millisecondes
 });
 
 
@@ -37,6 +38,7 @@ console.log({
     user: process.env.DB_USER,
     password: process.env.DB_PASS,
     database: process.env.DB_NAME,
+    DB_PORT: process.env.DB_PORT
 });
 
 
@@ -59,18 +61,22 @@ app.get('/materiel', (req, res) => {
     });
 });
 app.post('/materiel', (req, res) => {
-    const newMaterial = req.body; // les données envoyées par le client
+    const newMaterial = req.body;
+
+    console.log("Corps de la requête reçue : ", newMaterial)
 
     const query = "INSERT INTO tblmateriel (matTitre, matDescription, matCategorie, matModeEmploi, matCaracteristique, matLien, matRemarque, matNombre) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     const params = [newMaterial.titre, newMaterial.description, newMaterial.categorie, newMaterial.modeEmploi, newMaterial.caracteristique, newMaterial.lien, newMaterial.remarque, newMaterial.nombre];
+
     db.query(query, params, (err, result) => {
         if (err) {
             console.log("Erreur lors de l'insertion du matériel: ", err);
-            res.status(500).send({ error: "Erreur lors de l'insertion du matériel" });
+            res.status(500).send({ error: "Erreur lors de l'insertion du matériel", details: err.message });
         } else {
             res.send({ status: "Succès", id: result.insertId });
         }
     });
 });
+
 
 
