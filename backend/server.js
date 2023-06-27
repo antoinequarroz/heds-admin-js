@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 
 // Point d'entrée de l'API
 app.get('/', (req, res) => {
-    res.json({ message: 'Bienvenue sur notre API!' });
+    res.json({ message: 'Bienvenue sur notre API de la HEdS!' });
 });
 
 // D'autres routes ici...
