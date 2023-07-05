@@ -35,18 +35,18 @@ export default {
   data() {
     return {
       material: {
-        titre: '',
-        nombre: '',
-        description: ''
+        matTitre: '',
+        matNombre: '',
+        matDescription: ''
       },
       formLeft: {
-        titre: { label: 'Titre', type: 'text' },
+        matTitre: { label: 'Titre', type: 'text' },
       },
       formRight: {
-        nombre: {label: 'Nombre', type: 'number'},
+        matNombre: {label: 'Nombre', type: 'number'},
       },
       formBottom: {
-        description: { label: 'Description', rows: 5 },
+        matDescription: { label: 'Description', rows: 5 },
       },
     };
   },
@@ -67,6 +67,8 @@ export default {
           })
           .then(data => {
             console.log('Succès:', data);
+            // Naviguer vers MaterialList.vue si la requête a réussi
+            this.$router.push('/material_list');
           })
           .catch((error) => {
             console.error('Erreur:', error);

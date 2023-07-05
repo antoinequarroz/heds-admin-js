@@ -57,18 +57,20 @@ app.post('/materiel', (req, res) => {
 
     console.log("Corps de la requête reçue : ", newMaterial)
 
-    const query = "INSERT INTO tblmateriel (titre, nombre, description) VALUES (?, ?, ?)";
-    const params = [newMaterial.titre, newMaterial.nombre, newMaterial.description];
+    const sql = "INSERT INTO tblmateriel (matTitre, matNombre, matDescription) VALUES (?, ?, ?)";
+    const params = [req.body.matTitre, req.body.matNombre, req.body.matDescription];
 
-    db.query(query, params, (err, result) => {
-        if (err) {
-            console.log("Erreur lors de l'exécution de la requête SQL: ", query);
-            console.log("Avec les paramètres: ", params);
-            console.log("Erreur détaillée: ", err);
-            res.status(500).send({ error: "Erreur lors de l'insertion du matériel", details: err.message });
+
+    db.query(sql, params, (error, result) => {
+        if (error) {
+            console.error('Erreur lors de l\'exécution de la requête SQL: ', sql);
+            console.error('Avec les paramètres: ', params);
+            console.error('Erreur détaillée: ', error);
+            res.status(500).json({ error });
         } else {
-            res.send({ status: "Succès", id: result.insertId });
+            res.json(result);
         }
     });
+
 });
 
