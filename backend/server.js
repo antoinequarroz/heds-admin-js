@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
     res.json({ message: 'Bienvenue sur notre API de la HEdS!' });
 });
 
-const PORT = process.env.DB_PORT || 8000;
+const PORT = 8000; // par exemple
 app.listen(PORT, () => {
     console.log(`Serveur en cours d'exécution sur le port ${PORT}.`);
 });
@@ -24,7 +24,7 @@ const db = mysql.createPool({
     user: process.env.DB_USER,
     password: process.env.DB_PASS,
     database: process.env.DB_NAME,
-    connectTimeout: 10000
+    port: process.env.DB_PORT, // par exemple 3306
 });
 
 console.log({
@@ -32,6 +32,7 @@ console.log({
     user: process.env.DB_USER,
     password: process.env.DB_PASS,
     database: process.env.DB_NAME,
+    port: process.env.DB_PORT, // par exemple 3306
 });
 
 db.getConnection((err) => {
@@ -56,15 +57,18 @@ app.post('/materiel', (req, res) => {
 
     console.log("Corps de la requête reçue : ", newMaterial)
 
-    const query = "INSERT INTO tblmateriel (matTitre, matNombre, matDescription) VALUES (?, ?, ?)";
-    const params = [newMaterial.matTitre, newMaterial.matNombre, newMaterial.matDescription];
+    const query = "INSERT INTO tblmateriel (titre, nombre, description) VALUES (?, ?, ?)";
+    const params = [newMaterial.titre, newMaterial.nombre, newMaterial.description];
 
     db.query(query, params, (err, result) => {
         if (err) {
-            console.log("Erreur lors de l'insertion du matériel: ", err);
+            console.log("Erreur lors de l'exécution de la requête SQL: ", query);
+            console.log("Avec les paramètres: ", params);
+            console.log("Erreur détaillée: ", err);
             res.status(500).send({ error: "Erreur lors de l'insertion du matériel", details: err.message });
         } else {
             res.send({ status: "Succès", id: result.insertId });
         }
     });
 });
+
