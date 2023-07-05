@@ -2,6 +2,8 @@ require('dotenv').config()
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const fs = require('fs');
+const path = require('path');
 
 const app = express();
 
@@ -12,7 +14,7 @@ app.get('/', (req, res) => {
     res.json({ message: 'Bienvenue sur notre API de la HEdS!' });
 });
 
-const PORT = 8000; // par exemple
+const PORT = 8000;
 app.listen(PORT, () => {
     console.log(`Serveur en cours d'exécution sur le port ${PORT}.`);
 });
@@ -24,15 +26,7 @@ const db = mysql.createPool({
     user: process.env.DB_USER,
     password: process.env.DB_PASS,
     database: process.env.DB_NAME,
-    port: process.env.DB_PORT, // par exemple 3306
-});
-
-console.log({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASS,
-    database: process.env.DB_NAME,
-    port: process.env.DB_PORT, // par exemple 3306
+    port: process.env.DB_PORT,
 });
 
 db.getConnection((err) => {
@@ -57,9 +51,29 @@ app.post('/materiel', (req, res) => {
 
     console.log("Corps de la requête reçue : ", newMaterial)
 
-    const sql = "INSERT INTO tblmateriel (matTitre, matNombre, matDescription) VALUES (?, ?, ?)";
-    const params = [req.body.matTitre, req.body.matNombre, req.body.matDescription];
+    let matImage = req.body.matImage;
+    let matModeEmploi = req.body.matModeEmploi;
 
+    let buffImage = Buffer.from(matImage.split(';base64,').pop(), 'base64');
+    let buffPdf = Buffer.from(matModeEmploi.split(';base64,').pop(), 'base64');
+
+    let filename = req.body.matTitre.replace(/\s/g, "_"); // remplace les espaces par des tirets bas
+    let imageFilePath = path.join(__dirname, 'src/assets/images/', `${filename}.png`);
+    let pdfFilePath = path.join(__dirname, 'src/assets/documents/', `${filename}.pdf`);
+
+    try {
+        fs.writeFileSync(imageFilePath, buffImage);
+        fs.writeFileSync(pdfFilePath, buffPdf);
+    } catch (err) {
+        console.error('Erreur lors de l\'écriture des fichiers: ', err);
+        return res.status(500).json({ error: err.message });
+    }
+
+    const sql = `INSERT INTO tblmateriel (
+        matTitre, matNombre, matDescription, matCategorie, matModeEmploi, matCaracteristique,
+        matLien, matImage, salId)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+    const params = [req.body.matTitre, req.body.matNombre, req.body.matDescription, req.body.matCategorie, req.body.matModeEmploi, req.body.matCaracteristique, req.body.matLien, req.body.matImage, req.body.salId];
 
     db.query(sql, params, (error, result) => {
         if (error) {
@@ -71,6 +85,4 @@ app.post('/materiel', (req, res) => {
             res.json(result);
         }
     });
-
 });
-

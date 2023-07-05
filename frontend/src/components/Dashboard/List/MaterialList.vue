@@ -36,7 +36,7 @@
                     <h6 class="table-responsive-title mb-0 ms-2">{{ material.matTitre }}</h6>
                   </td>
                   <td>
-                    <h6 class="table-responsive-title mb-0 ms-2">{{ material.salTitre }}</h6>
+                    <h6 class="table-responsive-title mb-0 ms-2">{{ material.salId }}</h6>
                   </td>
                   <td>
                     <h6 class="table-responsive-title mb-0 ms-2">{{ material.matNombre }}</h6>
@@ -44,7 +44,7 @@
                   <td>
                     <button class="btn btn-sm btn-warning-soft me-1 mb-1 mb-md-0" @click="viewDetails(material.matId)">Détails</button>
                     <button class="btn btn-sm btn-success-soft me-1 mb-1 mb-md-0" @click="editMaterial(material.matId)">Modifier</button>
-                    <button class="btn btn-sm btn-danger-soft mb-0" @click="deleteMaterial(material.matId)">Supprimer</button>
+                    <button class="btn btn-sm btn-danger-soft me-1 mb-1 mb-md-0" @click="deleteMaterial(material.matId)">Supprimer</button>
                   </td>
                 </tr>
                 </tbody>
@@ -58,21 +58,50 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
+  name: "MaterialList",
+  props: {
+    limit: {
+      type: Number,
+      default: Infinity,
+    }
+  },
   data() {
     return {
       materials: []
-    };
+    }
   },
   created() {
-    fetch('http://localhost:8000/materiel')
-        .then(response => response.json())
-        .then(data => (this.materials = data))
-        .catch(error => console.log(error));
-  }
-};
-</script>
+    axios.get('http://localhost:8000/materiel')
+        .then(response => this.materials = response.data)
+        .catch(error => console.error(error));
+  },
+  methods: {
+    goBack() {
+      // Méthode pour revenir à la page précédente
+    },
+    viewDetails(id) {
+      // Méthode pour afficher les détails d'un matériel
+    },
+    editMaterial(id) {
+      // Méthode pour éditer un matériel
+    },
+    deleteMaterial(id) {
+      axios.delete(`http://localhost:8000/materiel/${id}`)
+          .then(() => {
+            // Use material.matId here
+            this.materials = this.materials.filter(material => material.matId !== id);
+          })
+          .catch(error => {
+            console.error('Il y a eu une erreur lors de la suppression du matériel', error);
+          });
+    }
 
+  }
+}
+</script>
 
 <style scoped>
 /* Ajoutez vos styles CSS ici si nécessaire */

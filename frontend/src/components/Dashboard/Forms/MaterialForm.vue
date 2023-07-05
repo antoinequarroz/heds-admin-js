@@ -15,6 +15,21 @@
         </div>
       </div>
     </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="matImage" class="form-label">Image</label>
+          <input type="file" id="matImage" ref="matImage" @change="onImageChange" class="form-control">
+        </div>
+        </div>
+
+        <div class="col-md-6">
+        <div class="mb-3">
+          <label for="matModeEmploi" class="form-label">Mode d'emploi (PDF)</label>
+          <input type="file" id="matModeEmploi" ref="matModeEmploi" @change="onPdfChange" accept=".pdf" class="form-control">
+        </div>
+      </div>
+    </div>
 
     <div class="row">
       <div class="col-12">
@@ -37,19 +52,30 @@ export default {
       material: {
         matTitre: '',
         matNombre: '',
-        matDescription: ''
+        matDescription: '',
+        matCategorie: '',
+        matModeEmploi: '',
+        matCaracteristique: '',
+        matLien: '',
+        matImage: '',
+        salId: '',
       },
       formLeft: {
         matTitre: { label: 'Titre', type: 'text' },
+        matCategorie: { label: 'Catégorie', type: 'text' },
+        matLien: { label: 'Lien', type: 'text' },
       },
       formRight: {
         matNombre: {label: 'Nombre', type: 'number'},
+        salId: { label: 'ID Salle', type: 'number' },
       },
       formBottom: {
         matDescription: { label: 'Description', rows: 5 },
+        matCaracteristique: { label: 'Caractéristique', rows: 5 },
       },
     };
   },
+
   methods: {
     submitForm() {
       fetch('http://localhost:8000/materiel', {
