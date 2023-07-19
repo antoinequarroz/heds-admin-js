@@ -46,7 +46,7 @@
                   <a href="#" class="h6 mb-0"><i class="far fa-heart"></i></a>
                 </div>
                 <!-- Title -->
-                <h5 class="card-title fw-normal"><a href="#">{{ materiel.matTitre }}</a></h5>
+                <h5 class="card-title fw-normal"><router-link :to="`/${materiel.slug}`">{{ materiel.matTitre }}</router-link></h5>
                 <p class="mb-2 text-truncate-2">{{ materiel.matDescription }}</p>
                 <!-- Rating star -->
                 <ul class="list-inline mb-0">
@@ -82,7 +82,7 @@
                   <a href="#" class="h6 mb-0"><i class="far fa-heart"></i></a>
                 </div>
                 <!-- Title -->
-                <h5 class="card-title fw-normal"><a href="#">{{ materiel.matTitre }}</a></h5>
+                <h5 class="card-title fw-normal"><router-link :to="`/${materiel.matSlug}`">{{ materiel.matTitre }}</router-link></h5>
                 <p class="mb-2 text-truncate-2">{{ materiel.matDescription }}</p>
                 <!-- Rating star -->
                 <ul class="list-inline mb-0">
@@ -118,7 +118,7 @@
                   <a href="#" class="h6 mb-0"><i class="far fa-heart"></i></a>
                 </div>
                 <!-- Title -->
-                <h5 class="card-title fw-normal"><a href="#">{{ materiel.matTitre }}</a></h5>
+                <h5 class="card-title fw-normal"><router-link :to="`/${materiel.matSlug}`">{{ materiel.matTitre }}</router-link></h5>
                 <p class="mb-2 text-truncate-2">{{ materiel.matDescription }}</p>
                 <!-- Rating star -->
                 <ul class="list-inline mb-0">
@@ -154,7 +154,7 @@
                   <a href="#" class="h6 mb-0"><i class="far fa-heart"></i></a>
                 </div>
                 <!-- Title -->
-                <h5 class="card-title fw-normal"><a href="#">{{ materiel.matTitre }}</a></h5>
+                <h5 class="card-title fw-normal"><router-link :to="`/${materiel.matSlug}`">{{ materiel.matTitre }}</router-link></h5>
                 <p class="mb-2 text-truncate-2">{{ materiel.matDescription }}</p>
                 <!-- Rating star -->
                 <ul class="list-inline mb-0">

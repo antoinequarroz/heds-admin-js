@@ -22,6 +22,7 @@
                   <th scope="col" class="border-0">Salle</th>
                   <th scope="col" class="border-0">Nombres</th>
                   <th scope="col" class="border-0">Catégorie</th>
+                  <th scope="col" class="border-0">Slug</th>
                   <th scope="col" class="border-0 rounded-end">Action</th>
                 </tr>
                 </thead>
@@ -44,6 +45,9 @@
                   </td>
                   <td>
                     <h6 class="table-responsive-title mb-0 ms-2">{{ material.matCategorie }}</h6>
+                  </td>
+                  <td>
+                    <h6 class="table-responsive-title mb-0 ms-2">{{ material.matSlug }}</h6>
                   </td>
                   <td>
                     <button class="btn btn-sm btn-warning-soft me-1 mb-1 mb-md-0" @click="viewDetails(material.matId)">Détails</button>

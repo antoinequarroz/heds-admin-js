@@ -11,6 +11,7 @@ import StatistiquesPage from "./components/Dashboard/StatistiquesPage.vue";
 import Faq from "./components/Dashboard/Faq.vue";
 import User from "./components/Dashboard/User.vue";
 import MaterialForm from "./components/Dashboard/Forms/MaterialForm.vue";
+import MaterialDetails from "./components/Dashboard/Details/MaterialDetails.vue";
 
 const routes = [
     { path: '/', component: HomePage },
@@ -25,6 +26,7 @@ const routes = [
     { path: '/faq', component: Faq },
     { path: '/user', component: User },
     { path: '/material_form', component: MaterialForm, name: 'MaterialForm'  },
+    { path: '/material/:slug', name: 'MaterialDetails', component: MaterialDetails }
 
     // ... autres routes si nécessaires
 ]

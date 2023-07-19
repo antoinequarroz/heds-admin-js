@@ -1,9 +1,10 @@
-require('dotenv').config()
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
+const slugify = require('slugify'); // Ajout du module slugify
 
 const app = express();
 
@@ -49,10 +50,13 @@ app.get('/materiel', (req, res) => {
 app.post('/materiel', (req, res) => {
     const newMaterial = req.body;
 
+
     console.log("Corps de la requête reçue : ", newMaterial)
 
     let matImage = req.body.matImage;
     let matModeEmploi = req.body.matModeEmploi;
+    let slug = slugify(req.body.matTitre, { lower: true, strict: true });
+    console.log('Generated slug: ', slug);
 
     let buffImage = Buffer.from(matImage.split(';base64,').pop(), 'base64');
     let buffPdf = Buffer.from(matModeEmploi.split(';base64,').pop(), 'base64');
@@ -70,10 +74,10 @@ app.post('/materiel', (req, res) => {
     }
 
     const sql = `INSERT INTO tblmateriel (
-        matTitre, matNombre, matDescription, matCategorie, matModeEmploi, matCaracteristique,
+        matTitre, matSlug, matNombre, matDescription, matCategorie, matModeEmploi, matCaracteristique,
         matLien, matImage, salId)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`;
-    const params = [req.body.matTitre, req.body.matNombre, req.body.matDescription, req.body.matCategorie, req.body.matModeEmploi, req.body.matCaracteristique, req.body.matLien, req.body.matImage, req.body.salId];
+                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+    const params = [req.body.matTitre, slug, req.body.matNombre, req.body.matDescription, req.body.matCategorie, req.body.matModeEmploi, req.body.matCaracteristique, req.body.matLien, req.body.matImage, req.body.salId];
 
     db.query(sql, params, (error, result) => {
         if (error) {
