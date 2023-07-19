@@ -5,7 +5,13 @@
       <div class="col-md-6">
         <div class="mb-3" v-for="(input, key) in formLeft" :key="key">
           <label :for="key" class="form-label">{{ input.label }}</label>
-          <input :type="input.type" v-model="material[key]" class="form-control">
+          <input v-if="input.type !== 'select'" :type="input.type" v-model="material[key]" class="form-control">
+          <select v-else v-model="material[key]" class="form-control">
+            <option value="1">Basse technologie</option>
+            <option value="2">Moyenne technologie</option>
+            <option value="3">Haute technologie</option>
+            <option value="4">Petit matériel</option>
+          </select>
         </div>
       </div>
       <div class="col-md-6">
@@ -62,7 +68,7 @@ export default {
       },
       formLeft: {
         matTitre: { label: 'Titre', type: 'text' },
-        matCategorie: { label: 'Catégorie', type: 'text' },
+        matCategorie: { label: 'Catégorie', type: 'select' },
         matLien: { label: 'Lien', type: 'text' },
       },
       formRight: {
@@ -101,9 +107,8 @@ export default {
           });
     },
     goBack() {
-      console.log('Retour');
-      // Ici, vous pouvez ajouter le code pour naviguer vers la page précédente ou effectuer d'autres actions
-    }
+      this.$router.go(-1); // Revenir à la page précédente
+    },
     // ...
   }
 };

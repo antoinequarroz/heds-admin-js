@@ -21,6 +21,7 @@
                   <th scope="col" class="border-0">Nom du matériel</th>
                   <th scope="col" class="border-0">Salle</th>
                   <th scope="col" class="border-0">Nombres</th>
+                  <th scope="col" class="border-0">Catégorie</th>
                   <th scope="col" class="border-0 rounded-end">Action</th>
                 </tr>
                 </thead>
@@ -40,6 +41,9 @@
                   </td>
                   <td>
                     <h6 class="table-responsive-title mb-0 ms-2">{{ material.matNombre }}</h6>
+                  </td>
+                  <td>
+                    <h6 class="table-responsive-title mb-0 ms-2">{{ material.matCategorie }}</h6>
                   </td>
                   <td>
                     <button class="btn btn-sm btn-warning-soft me-1 mb-1 mb-md-0" @click="viewDetails(material.matId)">Détails</button>
@@ -80,13 +84,15 @@ export default {
   },
   methods: {
     goBack() {
-      // Méthode pour revenir à la page précédente
+      this.$router.go(-1); // Revenir à la page précédente
     },
     viewDetails(id) {
-      // Méthode pour afficher les détails d'un matériel
+      this.$router.push({ name: 'MaterialDetails', params: { id: id } });
+      // Ceci suppose que vous ayez une route nommée 'MaterialDetails' pour afficher les détails d'un matériel
     },
     editMaterial(id) {
-      // Méthode pour éditer un matériel
+      this.$router.push({ name: 'MaterialEdit', params: { id: id } });
+      // Ceci suppose que vous ayez une route nommée 'MaterialEdit' pour l'édition d'un matériel
     },
     deleteMaterial(id) {
       axios.delete(`http://localhost:8000/materiel/${id}`)
@@ -98,11 +104,13 @@ export default {
             console.error('Il y a eu une erreur lors de la suppression du matériel', error);
           });
     }
-
   }
 }
 </script>
 
 <style scoped>
-/* Ajoutez vos styles CSS ici si nécessaire */
+
+
 </style>
+
+
