@@ -73,6 +73,7 @@ app.post('/materiel', (req, res) => {
         return res.status(500).json({ error: err.message });
     }
 
+    console.log('Fichiers écrits avec succès!');
     const sql = `INSERT INTO tblmateriel (
         matTitre, matSlug, matNombre, matDescription, matCategorie, matModeEmploi, matCaracteristique,
         matLien, matImage, salId)
