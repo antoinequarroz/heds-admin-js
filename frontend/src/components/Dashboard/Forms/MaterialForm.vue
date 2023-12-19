@@ -27,9 +27,9 @@
           <label for="matImage" class="form-label">Image</label>
           <input type="file" id="matImage" ref="matImage" @change="onImageChange" class="form-control">
         </div>
-        </div>
+      </div>
 
-        <div class="col-md-6">
+      <div class="col-md-6">
         <div class="mb-3">
           <label for="matModeEmploi" class="form-label">Mode d'emploi (PDF)</label>
           <input type="file" id="matModeEmploi" ref="matModeEmploi" @change="onPdfChange" accept=".pdf" class="form-control">

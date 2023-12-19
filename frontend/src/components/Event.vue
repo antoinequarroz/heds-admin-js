@@ -12,11 +12,11 @@
     <ul class="nav nav-pills nav-pills-bg-soft justify-content-sm-center mb-4 px-3" id="course-pills-tab" role="tablist">
       <!-- Tab item -->
       <li class="nav-item me-2 me-sm-5">
-        <button class="nav-link mb-2 mb-md-0 active" id="course-pills-tab-1" data-bs-toggle="pill" data-bs-target="#course-pills-tabs-1" type="button" role="tab" aria-controls="course-pills-tabs-1" aria-selected="false">Simulations</button>
+        <button class="nav-link mb-2 mb-md-0 active" id="course-pills-tab-9" data-bs-toggle="pill" data-bs-target="#course-pills-tabs-9" type="button" role="tab" aria-controls="course-pills-tabs-9" aria-selected="false">Simulations</button>
       </li>
       <!-- Tab item -->
       <li class="nav-item me-2 me-sm-5">
-        <button class="nav-link mb-2 mb-md-0" id="course-pills-tab-2" data-bs-toggle="pill" data-bs-target="#course-pills-tabs-2" type="button" role="tab" aria-controls="course-pills-tabs-2"	aria-selected="false">Events</button>
+        <button class="nav-link mb-2 mb-md-0" id="course-pills-tab-10" data-bs-toggle="pill" data-bs-target="#course-pills-tabs-10" type="button" role="tab" aria-controls="course-pills-tabs-10"	aria-selected="false">Events</button>
       </li>
     </ul>
     <!-- Tabs END -->
@@ -29,7 +29,7 @@
     </div>
     <br>
   <!-- omitting other part for brevity -->
-  <div class="tab-pane fade show active" id="event-pills-tabs-1" role="tabpanel" aria-labelledby="event-pills-tab-1">
+  <div class="tab-pane fade show active" id="event-pills-tabs-10" role="tabpanel" aria-labelledby="event-pills-tab-10">
     <div class="row g-4">
       <!-- Card item START -->
       <div class="col-sm-6 col-lg-4 col-xl-3" v-for="(event, index) in events" :key="event.id" v-if="index < limit">

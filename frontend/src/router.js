@@ -26,7 +26,7 @@ const routes = [
     { path: '/faq', component: Faq },
     { path: '/user', component: User },
     { path: '/material_form', component: MaterialForm, name: 'MaterialForm'  },
-    { path: '/material/:slug', name: 'MaterialDetails', component: MaterialDetails }
+    { path: '/material/:matSlug', component: MaterialDetails, name: 'material-details', props: true }
 
     // ... autres routes si nécessaires
 ]

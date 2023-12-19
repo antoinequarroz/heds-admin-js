@@ -12,19 +12,19 @@
     <ul class="nav nav-pills nav-pills-bg-soft justify-content-sm-center mb-4 px-3" id="course-pills-tab" role="tablist">
       <!-- Tab item -->
       <li class="nav-item me-2 me-sm-5">
-        <button class="nav-link mb-2 mb-md-0 active" id="course-pills-tab-1" data-bs-toggle="pill" data-bs-target="#course-pills-tabs-1" type="button" role="tab" aria-controls="course-pills-tabs-1" aria-selected="false">Maturité Pro</button>
+        <button class="nav-link mb-2 mb-md-0 active" id="course-pills-tab-5" data-bs-toggle="pill" data-bs-target="#course-pills-tabs-5" type="button" role="tab" aria-controls="course-pills-tabs-5" aria-selected="false">Maturité Pro</button>
       </li>
       <!-- Tab item -->
       <li class="nav-item me-2 me-sm-5">
-        <button class="nav-link mb-2 mb-md-0" id="course-pills-tab-2" data-bs-toggle="pill" data-bs-target="#course-pills-tabs-2" type="button" role="tab" aria-controls="course-pills-tabs-2"	aria-selected="false">Bachelor</button>
+        <button class="nav-link mb-2 mb-md-0" id="course-pills-tab-6" data-bs-toggle="pill" data-bs-target="#course-pills-tabs-6" type="button" role="tab" aria-controls="course-pills-tabs-6"	aria-selected="false">Bachelor</button>
       </li>
       <!-- Tab item -->
       <li class="nav-item me-2 me-sm-5">
-        <button class="nav-link mb-2 mb-md-0" id="course-pills-tab-3" data-bs-toggle="pill" data-bs-target="#course-pills-tabs-3" type="button" role="tab" aria-controls="course-pills-tabs-3" aria-selected="false">NTA</button>
+        <button class="nav-link mb-2 mb-md-0" id="course-pills-tab-7" data-bs-toggle="pill" data-bs-target="#course-pills-tabs-7" type="button" role="tab" aria-controls="course-pills-tabs-7" aria-selected="false">NTA</button>
       </li>
       <!-- Tab item -->
       <li class="nav-item me-2 me-sm-5">
-        <button class="nav-link mb-2 mb-md-0" id="course-pills-tab-4" data-bs-toggle="pill" data-bs-target="#course-pills-tabs-4" type="button" role="tab" aria-controls="course-pills-tabs-4" aria-selected="false">Formation continue</button>
+        <button class="nav-link mb-2 mb-md-0" id="course-pills-tab-8" data-bs-toggle="pill" data-bs-target="#course-pills-tabs-8" type="button" role="tab" aria-controls="course-pills-tabs-8" aria-selected="false">Formation continue</button>
       </li>
     </ul>
     <!-- Tabs END -->
@@ -37,7 +37,7 @@
     </div>
     <br>
   <!-- omitting other part for brevity -->
-  <div class="tab-pane fade show active" id="scenario-pills-tabs-1" role="tabpanel" aria-labelledby="scenario-pills-tab-1">
+  <div class="tab-pane fade show active" id="scenario-pills-tabs-5" role="tabpanel" aria-labelledby="scenario-pills-tab-5">
     <div class="row g-4">
       <!-- Card item START -->
       <div class="col-sm-6 col-lg-4 col-xl-3" v-for="(scenario, index) in scenarios" :key="scenario.id" v-if="index < limit">

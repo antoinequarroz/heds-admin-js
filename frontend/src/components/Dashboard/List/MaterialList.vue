@@ -29,7 +29,7 @@
                 <tbody>
                 <tr v-for="material in materials" :key="material.matId">
                   <td>
-                    <img class="w-60px card-img-top" :src="'src/assets/images/uploads/materials/' + material.matImage" :alt="material.matImage" />
+                    <img :src="randomImageUrl" alt="Image aléatoire" />
                   </td>
                   <td>
                     <h6 class="table-responsive-title mb-0 ms-2">{{ material.matId }}</h6>
@@ -44,15 +44,15 @@
                     <h6 class="table-responsive-title mb-0 ms-2">{{ material.matNombre }}</h6>
                   </td>
                   <td>
-                    <h6 class="table-responsive-title mb-0 ms-2">{{ material.matCategorie }}</h6>
+                    <h6 class="table-responsive-title mb-0 ms-2">{{ getCategoryName(material.matCategorie) }}</h6>
                   </td>
                   <td>
                     <h6 class="table-responsive-title mb-0 ms-2">{{ material.matSlug }}</h6>
                   </td>
                   <td>
-                    <button class="btn btn-sm btn-warning-soft me-1 mb-1 mb-md-0" @click="viewDetails(material.matId)">Détails</button>
-                    <button class="btn btn-sm btn-success-soft me-1 mb-1 mb-md-0" @click="editMaterial(material.matId)">Modifier</button>
-                    <button class="btn btn-sm btn-danger-soft me-1 mb-1 mb-md-0" @click="deleteMaterial(material.matId)">Supprimer</button>
+                    <router-link :to="`/material/${material.matSlug}`" class="btn btn-sm btn-warning-soft me-1 mb-1 mb-md-0">Détails</router-link>
+                    <button class="btn btn-sm btn-success-soft me-1 mb-1 mb-md-0" @click="editMaterial(material.matSlug)">Modifier</button>
+                    <button class="btn btn-sm btn-danger-soft me-1 mb-1 mb-md-0" @click="deleteMaterial(material.matSlug)">Supprimer</button>
                   </td>
                 </tr>
                 </tbody>
@@ -67,6 +67,7 @@
 
 <script>
 import axios from 'axios';
+import material from "../../Material.vue";
 
 export default {
   name: "MaterialList",
@@ -86,28 +87,39 @@ export default {
         .then(response => this.materials = response.data)
         .catch(error => console.error(error));
   },
+  computed: {
+    randomImageUrl() {
+      // Pour une image de 400x400 pixels. Modifiez les dimensions selon vos besoins.
+      return 'https://picsum.photos/60/60';
+    }
+  },
   methods: {
     goBack() {
       this.$router.go(-1); // Revenir à la page précédente
     },
-    viewDetails(id) {
-      this.$router.push({ name: 'MaterialDetails', params: { id: id } });
-      // Ceci suppose que vous ayez une route nommée 'MaterialDetails' pour afficher les détails d'un matériel
-    },
-    editMaterial(id) {
-      this.$router.push({ name: 'MaterialEdit', params: { id: id } });
+    editMaterial(slug) {
+      this.$router.push({ name: 'MaterialEdit', params: { slug: slug } });
       // Ceci suppose que vous ayez une route nommée 'MaterialEdit' pour l'édition d'un matériel
     },
-    deleteMaterial(id) {
-      axios.delete(`http://localhost:8000/materiel/${id}`)
+    deleteMaterial(slug) {
+      axios.delete(`http://localhost:8000/materiel/${slug}`)
           .then(() => {
-            // Use material.matId here
-            this.materials = this.materials.filter(material => material.matId !== id);
+            this.materials = this.materials.filter(material => material.matSlug !== slug);
           })
           .catch(error => {
             console.error('Il y a eu une erreur lors de la suppression du matériel', error);
           });
-    }
+    },
+    getCategoryName(categoryId) {
+      const categories = {
+        1: "Basse technologie",
+        2: "Moyenne technologie",
+        3: "Haute technologie",
+        4: "Petit matériels"
+      };
+
+      return categories[categoryId] || "Catégorie inconnue";
+    },
   }
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="h3 mb-4">FAQ's</h1>
+    <h1 class="h3 mb-4">Utilisateurs</h1>
     <div>
       <p><strong>Nom:</strong> John Doe</p>
       <p><strong>Email:</strong> john.doe@example.com</p>

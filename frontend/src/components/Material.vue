@@ -3,7 +3,7 @@
     <!-- Title -->
     <div class="row mb-4">
       <div class="col-lg-8 mx-auto text-center">
-        <h2 class="fs-1">Liste du matériels</h2>
+        <h2 class="fs-1">Liste du matériel</h2>
         <p class="mb-0">Liste du matériel se trouvant dans les différentes salles de nos écoles</p>
       </div>
     </div>
@@ -24,7 +24,7 @@
       </li>
       <!-- Tab item -->
       <li class="nav-item me-2 me-sm-5">
-        <button class="nav-link mb-2 mb-md-0" id="course-pills-tab-4" data-bs-toggle="pill" data-bs-target="#course-pills-tabs-4" type="button" role="tab" aria-controls="course-pills-tabs-4" aria-selected="false">Petit matériels</button>
+        <button class="nav-link mb-2 mb-md-0" id="course-pills-tab-4" data-bs-toggle="pill" data-bs-target="#course-pills-tabs-4" type="button" role="tab" aria-controls="course-pills-tabs-4" aria-selected="false">Petits matériels</button>
       </li>
     </ul>
     <!-- Tabs END -->
@@ -37,17 +37,20 @@
           <div class="col-sm-6 col-lg-4 col-xl-3" v-for="materiel in filteredMaterials('1')" :key="materiel.id">
             <div class="card shadow h-100">
               <!-- Image -->
-              <img :src="materiel.matImage" class="card-img-top" alt="material image">
+              <img :src="randomImageUrl" alt="Image aléatoire" />
+
               <!-- Card body -->
               <div class="card-body pb-0">
                 <!-- Badge and favorite -->
                 <div class="d-flex justify-content-between mb-2">
-                  <a href="#" class="badge bg-purple bg-opacity-10 text-purple">All level</a>
-                  <a href="#" class="h6 mb-0"><i class="far fa-heart"></i></a>
+                  <a class="badge bg-purple bg-opacity-10 text-purple">Basse technologie</a>
                 </div>
                 <!-- Title -->
-                <h5 class="card-title fw-normal"><router-link :to="`/${materiel.slug}`">{{ materiel.matTitre }}</router-link></h5>
+                <h5 class="card-title fw-normal">
+                  <router-link :to="`/material/${materiel.matSlug}`">{{ materiel.matTitre }}</router-link>
+                </h5>
                 <p class="mb-2 text-truncate-2">{{ materiel.matDescription }}</p>
+
                 <!-- Rating star -->
                 <ul class="list-inline mb-0">
                   <!-- Your rating logic here -->
@@ -57,12 +60,12 @@
               <div class="card-footer pt-0 pb-3">
                 <hr>
                 <div class="d-flex justify-content-between">
-                  <span class="h6 fw-light mb-0"><i class="far fa-clock text-danger me-2"></i>{{ materiel.salId }}</span>
-                  <span class="h6 fw-light mb-0"><i class="fas fa-table text-orange me-2"></i>{{ materiel.salId }} lectures</span>
+                  <span class="h6 fw-light mb-0"><i class="fa fa-door-open text-danger me-2"></i>{{ materiel.salId }}</span>
+                  <span class="h6 fw-light mb-0"><i class="fas fa-table text-orange me-2"></i>{{ materiel.matNombre }}</span>
                 </div>
               </div>
             </div>
-          <!-- Card item END -->
+            <!-- Card item END -->
           </div>
         </div>
       </div>
@@ -73,16 +76,18 @@
           <div class="col-sm-6 col-lg-4 col-xl-3" v-for="materiel in filteredMaterials('2')" :key="materiel.id">
             <div class="card shadow h-100">
               <!-- Image -->
-              <img :src="materiel.matImage" class="card-img-top" alt="material image">
+              <img :src="randomImageUrl" alt="Image aléatoire" />
+
               <!-- Card body -->
               <div class="card-body pb-0">
                 <!-- Badge and favorite -->
                 <div class="d-flex justify-content-between mb-2">
-                  <a href="#" class="badge bg-purple bg-opacity-10 text-purple">All level</a>
-                  <a href="#" class="h6 mb-0"><i class="far fa-heart"></i></a>
+                  <a class="badge bg-danger bg-opacity-10 text-danger">Moyenne technologie</a>
                 </div>
                 <!-- Title -->
-                <h5 class="card-title fw-normal"><router-link :to="`/${materiel.matSlug}`">{{ materiel.matTitre }}</router-link></h5>
+                <h5 class="card-title fw-normal">
+                  <router-link :to="`/material/${materiel.matSlug}`">{{ materiel.matTitre }}</router-link>
+                </h5>
                 <p class="mb-2 text-truncate-2">{{ materiel.matDescription }}</p>
                 <!-- Rating star -->
                 <ul class="list-inline mb-0">
@@ -93,8 +98,8 @@
               <div class="card-footer pt-0 pb-3">
                 <hr>
                 <div class="d-flex justify-content-between">
-                  <span class="h6 fw-light mb-0"><i class="far fa-clock text-danger me-2"></i>{{ materiel.salId }}</span>
-                  <span class="h6 fw-light mb-0"><i class="fas fa-table text-orange me-2"></i>{{ materiel.salId }} lectures</span>
+                  <span class="h6 fw-light mb-0"><i class="fa fa-door-open text-danger me-2 me-2"></i>{{ materiel.salId }}</span>
+                  <span class="h6 fw-light mb-0"><i class="fas fa-table text-orange me-2"></i>{{ materiel.matNombre }}</span>
                 </div>
               </div>
             </div>
@@ -109,16 +114,18 @@
           <div class="col-sm-6 col-lg-4 col-xl-3" v-for="materiel in filteredMaterials('3')" :key="materiel.id">
             <div class="card shadow h-100">
               <!-- Image -->
-              <img :src="materiel.matImage" class="card-img-top" alt="material image">
+              <img :src="randomImageUrl" alt="Image aléatoire" />
+
               <!-- Card body -->
               <div class="card-body pb-0">
                 <!-- Badge and favorite -->
                 <div class="d-flex justify-content-between mb-2">
-                  <a href="#" class="badge bg-purple bg-opacity-10 text-purple">All level</a>
-                  <a href="#" class="h6 mb-0"><i class="far fa-heart"></i></a>
+                  <a class="badge bg-success bg-opacity-10 text-success">Haute technologie</a>
                 </div>
                 <!-- Title -->
-                <h5 class="card-title fw-normal"><router-link :to="`/${materiel.matSlug}`">{{ materiel.matTitre }}</router-link></h5>
+                <h5 class="card-title fw-normal">
+                  <router-link :to="`/material/${materiel.matSlug}`">{{ materiel.matTitre }}</router-link>
+                </h5>
                 <p class="mb-2 text-truncate-2">{{ materiel.matDescription }}</p>
                 <!-- Rating star -->
                 <ul class="list-inline mb-0">
@@ -129,8 +136,8 @@
               <div class="card-footer pt-0 pb-3">
                 <hr>
                 <div class="d-flex justify-content-between">
-                  <span class="h6 fw-light mb-0"><i class="far fa-clock text-danger me-2"></i>{{ materiel.salId }}</span>
-                  <span class="h6 fw-light mb-0"><i class="fas fa-table text-orange me-2"></i>{{ materiel.salId }} lectures</span>
+                  <span class="h6 fw-light mb-0"><i class="fa fa-door-open text-danger me-2"></i>{{ materiel.salId }}</span>
+                  <span class="h6 fw-light mb-0"><i class="fas fa-table text-orange me-2"></i>{{ materiel.matNombre }}</span>
                 </div>
               </div>
             </div>
@@ -145,16 +152,18 @@
           <div class="col-sm-6 col-lg-4 col-xl-3" v-for="materiel in filteredMaterials('4')" :key="materiel.id">
             <div class="card shadow h-100">
               <!-- Image -->
-              <img :src="materiel.matImage" class="card-img-top" alt="material image">
+              <img :src="randomImageUrl" alt="Image aléatoire" />
+
               <!-- Card body -->
               <div class="card-body pb-0">
                 <!-- Badge and favorite -->
                 <div class="d-flex justify-content-between mb-2">
-                  <a href="#" class="badge bg-purple bg-opacity-10 text-purple">All level</a>
-                  <a href="#" class="h6 mb-0"><i class="far fa-heart"></i></a>
+                  <a class="badge bg-orange bg-opacity-10 text-orange">Petit matériels</a>
                 </div>
                 <!-- Title -->
-                <h5 class="card-title fw-normal"><router-link :to="`/${materiel.matSlug}`">{{ materiel.matTitre }}</router-link></h5>
+                <h5 class="card-title fw-normal">
+                  <router-link :to="`/material/${materiel.matSlug}`">{{ materiel.matTitre }}</router-link>
+                </h5>
                 <p class="mb-2 text-truncate-2">{{ materiel.matDescription }}</p>
                 <!-- Rating star -->
                 <ul class="list-inline mb-0">
@@ -165,8 +174,8 @@
               <div class="card-footer pt-0 pb-3">
                 <hr>
                 <div class="d-flex justify-content-between">
-                  <span class="h6 fw-light mb-0"><i class="far fa-clock text-danger me-2"></i>{{ materiel.salId }}</span>
-                  <span class="h6 fw-light mb-0"><i class="fas fa-table text-orange me-2"></i>{{ materiel.salId }} lectures</span>
+                  <span class="h6 fw-light mb-0"><i class="fa fa-door-open text-danger me-2"></i>{{ materiel.salId }}</span>
+                  <span class="h6 fw-light mb-0"><i class="fas fa-table text-orange me-2"></i>{{ materiel.matNombre }}</span>
                 </div>
               </div>
             </div>
@@ -185,7 +194,7 @@
 import axios from 'axios';
 
 export default {
-  name: "MaterialList",
+  name: "Material",
   props: {
     limit: {
       type: Number,
@@ -200,7 +209,12 @@ export default {
   methods: {
     filteredMaterials(categoryId) {
       return this.materials.filter(material => material.matCategorie === categoryId);
-    },
+    }
+  },
+  computed: {
+    randomImageUrl() {
+      return 'https://img.medicalexpo.fr/images_me/photo-g/93693-17737775.webp';
+    }
   },
   created() {
     axios.get('http://localhost:8000/materiel')

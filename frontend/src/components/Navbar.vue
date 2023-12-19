@@ -40,7 +40,7 @@
             <!-- Profile START -->
             <div class="dropdown ms-1 ms-lg-0">
               <a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
-                <img class="avatar-img rounded-circle" src="src/assets/images/avatar/01.jpg" alt="avatar">
+                <img class="avatar-img rounded-circle" src="src/assets/images/avatar/avatar99.png" alt="avatar">
               </a>
               <ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
                 <!-- Profile info -->
@@ -48,11 +48,11 @@
                   <div class="d-flex align-items-center">
                     <!-- Avatar -->
                     <div class="avatar me-3">
-                      <img class="avatar-img rounded-circle shadow" src="src/assets/images/avatar/01.jpg" alt="avatar">
+                      <img class="avatar-img rounded-circle shadow" src="src/assets/images/avatar/avatar99.png" alt="avatar">
                     </div>
                     <div>
-                      <a class="h6" href="#">Votre Nom</a>
-                      <p class="small m-0">example@hes-so.ch</p>
+                      <a class="h6" href="#">Antoine Quarroz</a>
+                      <p class="small m-0">antoine.quarroz@hes-so.ch</p>
                     </div>
                   </div>
                 </li>
