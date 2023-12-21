@@ -159,7 +159,7 @@
               <!-- Name -->
               <div class="col-12">
                 <label class="form-label">Numéro de téléphone *</label>
-                <input type="text" class="form-control" aria-label="Mobile number">
+                <input type="text" class="form-control" aria-label="Numéro de téléphone">
               </div>
               <!-- Button -->
               <div class="col-12 d-grid">
