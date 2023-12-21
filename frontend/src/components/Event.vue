@@ -71,7 +71,7 @@
 import axios from 'axios';
 
 export default {
-  name: "EventList",
+  name: "Event",
   props: {
     limit: {
       type: Number,

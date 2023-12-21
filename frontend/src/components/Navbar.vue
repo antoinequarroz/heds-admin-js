@@ -17,9 +17,9 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div class="navbar-nav">
                 <a class="nav-link active" :href="homePath">Accueil</a>
-                <a class="nav-link active" :href="materialPath">Matériels</a>
-                <a class="nav-link active" :href="scenarioPath">Scénario</a>
-                <a class="nav-link active" :href="eventPath">Calendrier</a>
+                <a class="nav-link active" :href="projetPath">Projets</a>
+                <a class="nav-link active" :href="eventPath">FAQ'S</a>
+                <a class="nav-link active" :href="eventPath">Profil</a>
                 <a class="nav-link active" :href="adminPath">Admin</a>
               </div>
             </div>
@@ -77,7 +77,7 @@ export default {
     return {
       logoPath: './src/assets/images/FR-DE_HEdS.png',  // Remplacez 'path_to_your_logo' par le chemin réel vers votre logo
       homePath: '/', // Remplacez par le chemin réel vers la page d'accueil si différent
-      materialPath: '/material', // Remplacez par le chemin réel vers la page Matériel si différent
+      projetPath: '/projet', // Remplacez par le chemin réel vers la page Matériel si différent
       scenarioPath: '/scenario', // Remplacez par le chemin réel vers la page Scénario si différent
       eventPath: '/event', // Remplacez par le chemin réel vers la page Calendrier si différent
       adminPath: '/admin' // Remplacez par le chemin réel vers la page Admin si différent

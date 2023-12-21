@@ -12,9 +12,11 @@ import Faq from "./components/Dashboard/Faq.vue";
 import User from "./components/Dashboard/User.vue";
 import MaterialForm from "./components/Dashboard/Forms/MaterialForm.vue";
 import MaterialDetails from "./components/Dashboard/Details/MaterialDetails.vue";
+import Projet from "./components/Projet.vue";
 
 const routes = [
     { path: '/', component: HomePage },
+    { path: '/projet', component: Projet, name: 'projet' },
     { path: '/material', component: Material },
     { path: '/scenario', component: Scenario },
     { path: '/event', component: Event },

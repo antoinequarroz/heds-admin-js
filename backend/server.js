@@ -110,8 +110,12 @@ app.post('/materiel', (req, res) => {
     }
 
 
+
     const imagePath = `src/assets/images/${filename}.png`;
     const pdfPath = `src/assets/documents/${filename}.pdf`;
+
+
+    console.log('Fichiers écrits avec succès!');
 
     const sql = `INSERT INTO tblmateriel (
         matTitre, matNombre, matDescription, matCategorie, matModeEmploi, matCaracteristique,
