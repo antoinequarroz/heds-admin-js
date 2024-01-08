@@ -21,7 +21,7 @@
                   <label for="exampleInputEmail1" class="form-label">E-mail *</label>
                   <div class="input-group input-group-lg">
                     <span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="bi bi-envelope-fill"></i></span>
-                    <input type="email" class="form-control border-0 bg-light rounded-end ps-1" placeholder="E-mail" id="exampleInputEmail1" ref="email">
+                    <input type="email" class="form-control border-0 bg-light rounded-end ps-1" autocomplete="email" placeholder="E-mail" v-model="email">
 
                   </div>
                 </div>
@@ -29,14 +29,14 @@
                   <label for="inputPassword5" class="form-label">Mot de passe *</label>
                   <div class="input-group input-group-lg">
                     <span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="fas fa-lock"></i></span>
-                    <input type="password" class="form-control border-0 bg-light rounded-end ps-1" placeholder="*********" id="inputPassword5" ref="password">
+                    <input type="password" class="form-control border-0 bg-light rounded-end ps-1" placeholder="*********" autocomplete="new-password" v-model="password">
                   </div>
                 </div>
                 <div class="mb-4">
                   <label for="inputPassword6" class="form-label">Confirmer le mot de passe *</label>
                   <div class="input-group input-group-lg">
                     <span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="fas fa-lock"></i></span>
-                    <input type="password" class="form-control border-0 bg-light rounded-end ps-1" placeholder="*********" id="inputPassword5" ref="password">
+                    <input type="password" class="form-control border-0 bg-light rounded-end ps-1" placeholder="*********" v-model="confirmPassword">
                   </div>
                 </div>
                 <div class="mb-4">
@@ -64,6 +64,7 @@
 
 <script>
 
+import axios from 'axios';
 export default {
 
   name: 'SignUp',
@@ -73,11 +74,32 @@ export default {
 
       signInPath : '/sign_in',
       term_of_use : '/term_of_use',
+      email: '',
+      password: '',
+      confirmPassword: ''
     }
   },
+  methods: {
+    async submitForm() {
+      if (this.password !== this.confirmPassword) {
+        alert("Les mots de passe ne correspondent pas.");
+        return;
+      }
 
-
-}
+      try {
+        const response = await axios.post('http://localhost:8000/register', {
+          email: this.email,
+          password: this.password
+        });
+        console.log(response.data);
+        // Rediriger l'utilisateur ou afficher un message de succès
+      } catch (error) {
+        console.error("Erreur lors de l'inscription:", error);
+        // Gérer l'erreur (afficher un message à l'utilisateur, etc.)
+      }
+    }
+  }
+};
 </script>
 
 <style scoped>

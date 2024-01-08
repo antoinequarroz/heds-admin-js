@@ -5,6 +5,8 @@ const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
 const slugify = require('slugify');
+const bcrypt = require('bcrypt');
+const { body, validationResult } = require('express-validator');
 
 const app = express();
 
@@ -133,3 +135,36 @@ app.post('/materiel', (req, res) => {
         res.json(result);
     });
 });
+
+app.post('/register',
+    // Validation des données
+    body('email').isEmail(),
+    body('password').isLength({ min: 8 }),
+
+    async (req, res) => {
+        // Vérifier les erreurs de validation
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() });
+        }
+
+        try {
+            // Hasher le mot de passe
+            const hashedPassword = await bcrypt.hash(req.body.password, 10);
+
+            // Insérer l'utilisateur dans la base de données
+            const sql = 'INSERT INTO Users (email, password) VALUES (?, ?)';
+            const params = [req.body.email, hashedPassword];
+
+            db.query(sql, params, (error, result) => {
+                if (error) {
+                    // Gérer les erreurs (comme l'email déjà utilisé)
+                    return res.status(500).json({ error });
+                }
+                res.status(201).json({ message: 'Utilisateur créé', userId: result.insertId });
+            });
+        } catch (error) {
+            res.status(500).json({ error });
+        }
+    }
+);

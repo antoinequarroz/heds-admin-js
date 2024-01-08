@@ -21,33 +21,32 @@ import TermOfUse from "./components/Utils/TermOfUse.vue";
 import Reservation from "./components/Reservation/Reservation.vue";
 import ReservationVide from "./components/Reservation/ReservationVide.vue";
 import Wishlist from "./components/Reservation/Wishlist.vue";
+import ComingSoon from "./components/Utils/ComingSoon.vue";
 
 const routes = [
     { path: '/', component: HomePage },
     { path: '/projet', component: Projet, name: 'projet' },
-    { path: '/material', component: Material },
-    { path: '/scenario', component: Scenario },
-    { path: '/event', component: Event },
-    { path: '/admin', component: Dashboard },
-    { path: '/material_list', component: MaterialList },
-    { path: '/scenario_list', component: ScenarioList },
-    { path: '/event_list', component: EventList },
-    { path: '/statistiques', component: StatistiquesPage },
-    { path: '/faq', component: Faq },
-    { path: '/user', component: User },
+    { path: '/material', component: Material, name: 'material' },
+    { path: '/scenario', component: Scenario, name: 'scenario' },
+    { path: '/event', component: Event, name: 'event' },
+    { path: '/admin', component: Dashboard, name: 'dashboard' },
+    { path: '/material_list', component: MaterialList, name: 'material-list' },
+    { path: '/scenario_list', component: ScenarioList, name: 'scenario-list' },
+    { path: '/event_list', component: EventList, name: 'event-list' },
+    { path: '/statistiques', component: StatistiquesPage, name: 'statistiques' },
+    { path: '/faq', component: Faq, name: 'faq' },
+    { path: '/user', component: User, name: 'user' },
     { path: '/material_form', component: MaterialForm, name: 'MaterialForm'  },
     { path: '/material/:matSlug', component: MaterialDetails, name: 'material-details', props: true },
     { path: '/:pathMatch(.*)*', component: Error404, name: 'Error404' },
-    { path: '/sign_in', component: SignIn },
-    { path: '/sign_up', component: SignUp },
-    { path: '/forgot_password', component: ForgotPassword },
-    { path: '/term_of_use', component: TermOfUse },
-    { path: '/reservation', component: Reservation },
-    { path: '/reservation_vide', component: ReservationVide },
-    { path: '/wishlist', component: Wishlist },
-
-
-    // ... autres routes si nécessaires
+    { path: '/sign_in', component: SignIn, name: 'sign-in' },
+    { path: '/sign_up', component: SignUp, name: 'sign-up' },
+    { path: '/forgot_password', component: ForgotPassword, name: 'forgot-password' },
+    { path: '/term_of_use', component: TermOfUse, name: 'term-of-use' },
+    { path: '/reservation', component: Reservation, name: 'reservation' },
+    { path: '/reservation_vide', component: ReservationVide, name: 'reservation-vide' },
+    { path: '/wishlist', component: Wishlist, name: 'wishlist' },
+    { path: '/coming_soon', component: ComingSoon, name: 'coming-soon' },
 ]
 
 const router = createRouter({
