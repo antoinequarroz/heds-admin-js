@@ -13,6 +13,11 @@ import User from "./components/Dashboard/User.vue";
 import MaterialForm from "./components/Dashboard/Forms/MaterialForm.vue";
 import MaterialDetails from "./components/Dashboard/Details/MaterialDetails.vue";
 import Projet from "./components/Projet.vue";
+import Error404 from "./components/Utils/Error404.vue";
+import SignIn from "./components/Utils/SignIn.vue";
+import SignUp from "./components/Utils/SignUp.vue";
+import ForgotPassword from "./components/Utils/ForgotPassword.vue";
+import TermOfUse from "./components/Utils/TermOfUse.vue";
 
 const routes = [
     { path: '/', component: HomePage },
@@ -28,7 +33,12 @@ const routes = [
     { path: '/faq', component: Faq },
     { path: '/user', component: User },
     { path: '/material_form', component: MaterialForm, name: 'MaterialForm'  },
-    { path: '/material/:matSlug', component: MaterialDetails, name: 'material-details', props: true }
+    { path: '/material/:matSlug', component: MaterialDetails, name: 'material-details', props: true },
+    { path: '/:pathMatch(.*)*', component: Error404, name: 'Error404' },
+    { path: '/sign_in', component: SignIn },
+    { path: '/sign_up', component: SignUp },
+    { path: '/forgot_password', component: ForgotPassword },
+    { path: '/term_of_use', component: TermOfUse },
 
     // ... autres routes si nécessaires
 ]

@@ -16,11 +16,12 @@
           <div class="container-fluid">
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div class="navbar-nav">
-                <a class="nav-link active" :href="homePath">Accueil</a>
-                <a class="nav-link active" :href="projetPath">Projets</a>
-                <a class="nav-link active" :href="eventPath">FAQ'S</a>
-                <a class="nav-link active" :href="eventPath">Profil</a>
-                <a class="nav-link active" :href="adminPath">Admin</a>
+                <a class="nav-link" :href="homePath">Accueil</a>
+                <a class="nav-link" :href="projetPath">Projets</a>
+                <a class="nav-link" :href="eventPath">FAQ'S</a>
+                <a class="nav-link" :href="eventPath">Profil</a>
+                <a class="nav-link" :href="adminPath">Admin</a>
+                <a class="nav-link" :href="signIn">Se connecter</a>
               </div>
             </div>
 
@@ -80,7 +81,8 @@ export default {
       projetPath: '/projet', // Remplacez par le chemin réel vers la page Matériel si différent
       scenarioPath: '/scenario', // Remplacez par le chemin réel vers la page Scénario si différent
       eventPath: '/event', // Remplacez par le chemin réel vers la page Calendrier si différent
-      adminPath: '/admin' // Remplacez par le chemin réel vers la page Admin si différent
+      adminPath: '/admin', // Remplacez par le chemin réel vers la page Admin si différent
+      signIn: '/sign_in' // Remplacez par le chemin réel vers la page Login si différent
     };
   },
 }
