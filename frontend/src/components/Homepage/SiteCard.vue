@@ -1,6 +1,13 @@
 <template>
   <section>
     <div class="container">
+      <!-- Title -->
+      <div class="row mb-4">
+        <div class="col-lg-8 mx-auto text-center">
+          <h2 class="fs-1">Les sites</h2>
+          <p class="mb-0">Les différents sites de la HEdS et ES</p>
+        </div>
+      </div>
       <div class="row g-4">
         <div v-for="card in cards" :key="card.id" class="col-sm-6 col-lg-3">
           <div class="card" :class="card.bgClass">
