@@ -18,6 +18,9 @@ import SignIn from "./components/Utils/SignIn.vue";
 import SignUp from "./components/Utils/SignUp.vue";
 import ForgotPassword from "./components/Utils/ForgotPassword.vue";
 import TermOfUse from "./components/Utils/TermOfUse.vue";
+import Reservation from "./components/Reservation/Reservation.vue";
+import ReservationVide from "./components/Reservation/ReservationVide.vue";
+import Wishlist from "./components/Reservation/Wishlist.vue";
 
 const routes = [
     { path: '/', component: HomePage },
@@ -39,6 +42,10 @@ const routes = [
     { path: '/sign_up', component: SignUp },
     { path: '/forgot_password', component: ForgotPassword },
     { path: '/term_of_use', component: TermOfUse },
+    { path: '/reservation', component: Reservation },
+    { path: '/reservation_vide', component: ReservationVide },
+    { path: '/wishlist', component: Wishlist },
+
 
     // ... autres routes si nécessaires
 ]

@@ -30,7 +30,7 @@
                 <form>
                   <!-- Email -->
                   <div class="mb-4">
-                    <label for="exampleInputEmail1" class="form-label">Email *</label>
+                    <label for="exampleInputEmail1" class="form-label">E-mail *</label>
                     <div class="input-group input-group-lg">
                       <span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i
                           class="bi bi-envelope-fill"></i></span>

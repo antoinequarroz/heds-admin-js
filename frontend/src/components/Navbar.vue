@@ -76,13 +76,13 @@ export default {
   name: "Navbar",
   data() {
     return {
-      logoPath: './src/assets/images/FR-DE_HEdS.png',  // Remplacez 'path_to_your_logo' par le chemin réel vers votre logo
-      homePath: '/', // Remplacez par le chemin réel vers la page d'accueil si différent
-      projetPath: '/projet', // Remplacez par le chemin réel vers la page Matériel si différent
-      scenarioPath: '/scenario', // Remplacez par le chemin réel vers la page Scénario si différent
-      eventPath: '/event', // Remplacez par le chemin réel vers la page Calendrier si différent
-      adminPath: '/admin', // Remplacez par le chemin réel vers la page Admin si différent
-      signIn: '/sign_in' // Remplacez par le chemin réel vers la page Login si différent
+      logoPath: './src/assets/images/FR-DE_HEdS.png',
+      homePath: '/',
+      projetPath: '/projet',
+      scenarioPath: '/scenario',
+      eventPath: '/event',
+      adminPath: '/admin',
+      signIn: '/sign_in'
     };
   },
 }
