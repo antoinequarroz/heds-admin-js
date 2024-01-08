@@ -168,3 +168,33 @@ app.post('/register',
         }
     }
 );
+
+app.post('/login', async (req, res) => {
+    try {
+        const { email, password } = req.body;
+
+        // Vérifiez si l'utilisateur existe dans la base de données
+        db.query('SELECT * FROM Users WHERE email = ?', [email], async (error, results) => {
+            if (error) {
+                return res.status(500).json({ error });
+            }
+            if (results.length == 0) {
+                return res.status(401).json({ message: 'Email ou mot de passe incorrect' });
+            }
+
+            const user = results[0];
+
+            // Comparez le mot de passe fourni avec celui stocké dans la base de données
+            const match = await bcrypt.compare(password, user.password);
+
+            if (!match) {
+                return res.status(401).json({ message: 'Email ou mot de passe incorrect' });
+            }
+
+            // Si tout va bien, renvoyez une réponse positive
+            res.json({ message: 'Connexion réussie', userId: user.id });
+        });
+    } catch (error) {
+        res.status(500).json({ error });
+    }
+});

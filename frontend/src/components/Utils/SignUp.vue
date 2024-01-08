@@ -81,6 +81,11 @@ export default {
   },
   methods: {
     async submitForm() {
+      if (!this.email || !this.password || !this.confirmPassword) {
+        alert("Veuillez remplir tous les champs.");
+        return;
+      }
+
       if (this.password !== this.confirmPassword) {
         alert("Les mots de passe ne correspondent pas.");
         return;
@@ -92,13 +97,16 @@ export default {
           password: this.password
         });
         console.log(response.data);
-        // Rediriger l'utilisateur ou afficher un message de succès
+        alert("Inscription réussie! ID utilisateur: " + response.data.userId);
+        // Rediriger vers la page de connexion ou une autre page appropriée
+        this.$router.push({ path: '/sign_in' });
       } catch (error) {
         console.error("Erreur lors de l'inscription:", error);
-        // Gérer l'erreur (afficher un message à l'utilisateur, etc.)
+        alert("Erreur lors de l'inscription: " + error.response.data.error);
       }
     }
   }
+
 };
 </script>
 

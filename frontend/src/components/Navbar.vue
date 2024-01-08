@@ -20,34 +20,30 @@
                 <a class="nav-link" :href="projetPath">Projets</a>
                 <a class="nav-link" :href="eventPath">FAQ'S</a>
                 <a class="nav-link" :href="eventPath">Profil</a>
-                <a class="nav-link" :href="adminPath">Admin</a>
-                <a class="nav-link" :href="signIn">Se connecter</a>
+                <a class="nav-link" :href="adminPath" v-if="isLoggedIn">Admin</a>
+                <a class="nav-link" @click="logout" v-if="isLoggedIn">Déconnexion</a>
+                <a class="nav-link" :href="signIn" v-else>Se connecter</a>
               </div>
             </div>
 
-            <!-- Nav Search START -->
             <div class="nav my-3 my-xl-0 px-4 flex-nowrap align-items-center">
               <div class="nav-item w-100">
                 <form class="position-relative">
                   <input class="form-control pe-5 bg-transparent" type="search" placeholder="Recherche" aria-label="Recherche">
-                  <button class="bg-transparent p-2 position-absolute top-50 end-0 translate-middle-y border-0 text-primary-hover text-reset" type="submit">
-                    <i class="fas fa-search fs-6 "></i>
+                  <button                   class="bg-transparent p-2 position-absolute top-50 end-0 translate-middle-y border-0 text-primary-hover text-reset" type="submit">
+                    <i class="fas fa-search fs-6"></i>
                   </button>
                 </form>
               </div>
             </div>
-            <!-- Nav Search END -->
 
-            <!-- Profile START -->
             <div class="dropdown ms-1 ms-lg-0">
               <a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
                 <img class="avatar-img rounded-circle" src="src/assets/images/avatar/avatar99.png" alt="avatar">
               </a>
               <ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
-                <!-- Profile info -->
                 <li class="px-3 mb-3">
                   <div class="d-flex align-items-center">
-                    <!-- Avatar -->
                     <div class="avatar me-3">
                       <img class="avatar-img rounded-circle shadow" src="src/assets/images/avatar/avatar99.png" alt="avatar">
                     </div>
@@ -58,12 +54,10 @@
                   </div>
                 </li>
                 <li> <hr class="dropdown-divider"></li>
-                <!-- Links -->
                 <li><a class="dropdown-item" href="#"><i class="bi bi-person fa-fw me-2"></i>Edit Profile</a></li>
                 <li><a class="dropdown-item bg-danger-soft-hover" href="#"><i class="bi bi-power fa-fw me-2"></i>Sign Out</a></li>
               </ul>
             </div>
-            <!-- Profile START -->
           </div>
         </nav>
       </div>
@@ -82,12 +76,21 @@ export default {
       scenarioPath: '/scenario',
       eventPath: '/event',
       adminPath: '/admin',
-      signIn: '/sign_in'
+      signIn: '/sign_in',
+      isLoggedIn: false,
     };
   },
+  methods: {
+    logout() {
+      this.isLoggedIn = false;
+      this.$router.push('/sign_in');
+    }
+  }
 }
 </script>
 
 <style scoped>
 /* Ajoutez vos styles CSS ici si nécessaire */
 </style>
+
+
