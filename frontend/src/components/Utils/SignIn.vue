@@ -72,11 +72,11 @@ export default {
           email: this.email,
           password: this.password
         });
-        console.log(response.data);
-
-        // Redirection vers la page d'accueil après connexion réussie
+        // Mise à jour de l'état de connexion
+        this.$store.commit('setLoggedIn', true);
+        localStorage.setItem('isLoggedIn', true);
+        // Redirection vers la page d'accueil
         this.$router.push('/');
-
       } catch (error) {
         console.error("Erreur de connexion:", error);
       }

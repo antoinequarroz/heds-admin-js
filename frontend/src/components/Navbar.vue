@@ -19,7 +19,7 @@
                 <a class="nav-link" :href="homePath">Accueil</a>
                 <a class="nav-link" :href="projetPath">Projets</a>
                 <a class="nav-link" :href="eventPath">FAQ'S</a>
-                <a class="nav-link" :href="eventPath">Profil</a>
+                <a class="nav-link" :href="eventPath"  v-if="isLoggedIn">Profile</a>
                 <a class="nav-link" :href="adminPath" v-if="isLoggedIn">Admin</a>
                 <a class="nav-link" @click="logout" v-if="isLoggedIn">Déconnexion</a>
                 <a class="nav-link" :href="signIn" v-else>Se connecter</a>
@@ -30,14 +30,14 @@
               <div class="nav-item w-100">
                 <form class="position-relative">
                   <input class="form-control pe-5 bg-transparent" type="search" placeholder="Recherche" aria-label="Recherche">
-                  <button                   class="bg-transparent p-2 position-absolute top-50 end-0 translate-middle-y border-0 text-primary-hover text-reset" type="submit">
+                  <button class="bg-transparent p-2 position-absolute top-50 end-0 translate-middle-y border-0 text-primary-hover text-reset" type="submit">
                     <i class="fas fa-search fs-6"></i>
                   </button>
                 </form>
               </div>
             </div>
 
-            <div class="dropdown ms-1 ms-lg-0">
+            <div v-if="isLoggedIn" class="dropdown ms-1 ms-lg-0">
               <a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
                 <img class="avatar-img rounded-circle" src="src/assets/images/avatar/avatar99.png" alt="avatar">
               </a>
@@ -48,14 +48,14 @@
                       <img class="avatar-img rounded-circle shadow" src="src/assets/images/avatar/avatar99.png" alt="avatar">
                     </div>
                     <div>
-                      <a class="h6" href="#">Antoine Quarroz</a>
+                      <a class="h6" :href="eventPath">Antoine Quarroz</a>
                       <p class="small m-0">antoine.quarroz@hes-so.ch</p>
                     </div>
                   </div>
                 </li>
                 <li> <hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="#"><i class="bi bi-person fa-fw me-2"></i>Edit Profile</a></li>
-                <li><a class="dropdown-item bg-danger-soft-hover" href="#"><i class="bi bi-power fa-fw me-2"></i>Sign Out</a></li>
+                <li><a class="dropdown-item bg-danger-soft-hover li-logout" @click="logout"><i class="bi bi-power fa-fw me-2"></i>Sign Out</a></li>
               </ul>
             </div>
           </div>
@@ -68,29 +68,48 @@
 <script>
 export default {
   name: "Navbar",
-  data() {
-    return {
-      logoPath: './src/assets/images/FR-DE_HEdS.png',
-      homePath: '/',
-      projetPath: '/projet',
-      scenarioPath: '/scenario',
-      eventPath: '/event',
-      adminPath: '/admin',
-      signIn: '/sign_in',
-      isLoggedIn: false,
-    };
-  },
-  methods: {
-    logout() {
-      this.isLoggedIn = false;
-      this.$router.push('/sign_in');
+    data() {
+      return {
+        logoPath: './src/assets/images/FR-DE_HEdS.png',
+        homePath: '/',
+        projetPath: '/projet',
+        scenarioPath: '/scenario',
+        eventPath: '/event',
+        adminPath: '/admin',
+        signIn: '/sign_in',
+      };
+    },
+  computed: {
+    isLoggedIn() {
+      return this.$store.state.isLoggedIn;
     }
+  },
+    methods: {
+      logout() {
+        this.$store.commit('setLoggedIn', false);
+        localStorage.removeItem('isLoggedIn');
+        this.$router.push('/');
+      }
+    },
   }
-}
 </script>
 
 <style scoped>
-/* Ajoutez vos styles CSS ici si nécessaire */
+
+.li-logout {
+  cursor: pointer;
+}
+
+.li-logout[ @click="logout" ] {
+  cursor: pointer;
+}
+.nav-link {
+  cursor: pointer;
+}
+/* Vous pouvez également cibler spécifiquement le lien de déconnexion si nécessaire */
+.nav-link[ @click="logout" ] {
+  cursor: pointer;
+}
 </style>
 
 

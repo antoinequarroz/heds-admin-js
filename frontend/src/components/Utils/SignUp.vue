@@ -18,13 +18,29 @@
               <p class="lead mb-4">Ravi de vous voir! Veuillez vous inscrire avec votre compte.</p>
               <form>
                 <div class="mb-4">
+                  <label for="inputFirstName" class="form-label">Prénom *</label>
+                  <div class="input-group input-group-lg">
+                    <span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="bi bi-person-badge-fill"></i></span>
+                  <input type="text" class="form-control border-0 bg-light rounded-end ps-1" id="inputFirstName" placeholder="Prénom" v-model="firstName">
+                  </div>
+                </div>
+
+                <div class="mb-4">
+                  <label for="inputLastName" class="form-label">Nom *</label>
+                  <div class="input-group input-group-lg">
+                    <span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="bi bi-person-fill"></i></span>
+                  <input type="text" class="form-control border-0 bg-light rounded-end ps-1" id="inputLastName" placeholder="Nom" v-model="lastName">
+                  </div>
+                </div>
+
+                <div class="mb-4">
                   <label for="exampleInputEmail1" class="form-label">E-mail *</label>
                   <div class="input-group input-group-lg">
                     <span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="bi bi-envelope-fill"></i></span>
                     <input type="email" class="form-control border-0 bg-light rounded-end ps-1" autocomplete="email" placeholder="E-mail" v-model="email">
-
                   </div>
                 </div>
+
                 <div class="mb-4">
                   <label for="inputPassword5" class="form-label">Mot de passe *</label>
                   <div class="input-group input-group-lg">
@@ -74,6 +90,8 @@ export default {
 
       signInPath : '/sign_in',
       term_of_use : '/term_of_use',
+      firstName: '',
+      lastName: '',
       email: '',
       password: '',
       confirmPassword: ''
@@ -81,7 +99,7 @@ export default {
   },
   methods: {
     async submitForm() {
-      if (!this.email || !this.password || !this.confirmPassword) {
+      if (!this.email || !this.password || !this.confirmPassword || !this.firstName || !this.lastName) {
         alert("Veuillez remplir tous les champs.");
         return;
       }
@@ -94,10 +112,12 @@ export default {
       try {
         const response = await axios.post('http://localhost:8000/register', {
           email: this.email,
-          password: this.password
+          password: this.password,
+          firstName: this.firstName,
+          lastName: this.lastName
         });
         console.log(response.data);
-        alert("Inscription réussie! ID utilisateur: " + response.data.userId);
+        alert("Inscription réussie!");
         // Rediriger vers la page de connexion ou une autre page appropriée
         this.$router.push({ path: '/sign_in' });
       } catch (error) {

@@ -23,7 +23,8 @@
     "mysql": "^2.18.1",
     "sass": "^1.63.5",
     "vue": "^3.2.47",
-    "vue-router": "^4.2.2"
+    "vue-router": "^4.2.2",
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.1.0",

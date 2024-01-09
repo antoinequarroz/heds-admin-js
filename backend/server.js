@@ -140,8 +140,11 @@ app.post('/register',
     // Validation des données
     body('email').isEmail(),
     body('password').isLength({ min: 8 }),
+    body('firstName').notEmpty(),
+    body('lastName').notEmpty(),
 
     async (req, res) => {
+        console.log(req.body); // Ajoutez ceci pour voir les données reçues
         // Vérifier les erreurs de validation
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
@@ -153,17 +156,18 @@ app.post('/register',
             const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
             // Insérer l'utilisateur dans la base de données
-            const sql = 'INSERT INTO Users (email, password) VALUES (?, ?)';
-            const params = [req.body.email, hashedPassword];
+            const sql = 'INSERT INTO Users (email, password, firstName, lastName) VALUES (?, ?, ?, ?)';
+            const params = [req.body.email, hashedPassword, req.body.firstName, req.body.lastName];
 
             db.query(sql, params, (error, result) => {
                 if (error) {
-                    // Gérer les erreurs (comme l'email déjà utilisé)
+                    console.error('Erreur SQL:', error); // Affichez l'erreur SQL
                     return res.status(500).json({ error });
                 }
                 res.status(201).json({ message: 'Utilisateur créé', userId: result.insertId });
             });
         } catch (error) {
+            console.error('Erreur générale:', error); // Affichez l'erreur générale
             res.status(500).json({ error });
         }
     }
