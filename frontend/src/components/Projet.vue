@@ -3,8 +3,8 @@
     <!-- Title -->
     <div class="row mb-4">
       <div class="col-lg-8 mx-auto text-center">
-        <h2 class="fs-1">Les projets</h2>
-        <p class="mb-0">Liste des différents projets de la HEdS</p>
+        <h2 class="fs-1">Liste du matériel</h2>
+        <p class="mb-0">Liste du matériel se trouvant dans les différentes salles de nos écoles</p>
       </div>
     </div>
 
@@ -16,7 +16,7 @@
       </li>
       <!-- Tab item -->
       <li class="nav-item me-2 me-sm-5">
-        <button class="nav-link mb-2 mb-md-0" id="course-pills-tab-2" data-bs-toggle="pill" data-bs-target="#course-pills-tabs-2" type="button" role="tab" aria-controls="course-pills-tabs-2"	aria-selected="false">Soins Infirmier</button>
+        <button class="nav-link mb-2 mb-md-0" id="course-pills-tab-2" data-bs-toggle="pill" data-bs-target="#course-pills-tabs-2" type="button" role="tab" aria-controls="course-pills-tabs-2"	aria-selected="false">Soins infirmier</button>
       </li>
       <!-- Tab item -->
       <li class="nav-item me-2 me-sm-5">
@@ -34,7 +34,7 @@
       <!-- Tab pane START -->
       <div class="tab-pane fade show active" id="course-pills-tabs-1" role="tabpanel" aria-labelledby="course-pills-tab-1">
         <div class="row g-4">
-          <div class="col-sm-6 col-lg-4 col-xl-3" v-for="projet in filteredMaterials('1')" :key="projet.id">
+          <div class="col-sm-6 col-lg-4 col-xl-3" v-for="materiel in filteredMaterials('1')" :key="materiel.id">
             <div class="card shadow h-100">
               <!-- Image -->
               <img :src="randomImageUrl" alt="Image aléatoire" />
@@ -47,9 +47,9 @@
                 </div>
                 <!-- Title -->
                 <h5 class="card-title fw-normal">
-                  <router-link :to="`/material/${projet.slug}`">{{ projet.nom }}</router-link>
+                  <router-link :to="`/material/${materiel.matSlug}`">{{ materiel.matTitre }}</router-link>
                 </h5>
-                <p class="mb-2 text-truncate-2">{{ projet.description }}</p>
+                <p class="mb-2 text-truncate-2">{{ materiel.matDescription }}</p>
 
                 <!-- Rating star -->
                 <ul class="list-inline mb-0">
@@ -60,6 +60,7 @@
               <div class="card-footer pt-0 pb-3">
                 <hr>
                 <div class="d-flex justify-content-between">
+                  <span class="h6 fw-light mb-0"><i class="fa fa-door-open text-danger me-2"></i>{{ materiel.salId }}</span>
                   <span class="h6 fw-light mb-0"><i class="fas fa-table text-orange me-2"></i>{{ materiel.matNombre }}</span>
                 </div>
               </div>
@@ -161,7 +162,7 @@
                 </div>
                 <!-- Title -->
                 <h5 class="card-title fw-normal">
-                  <router-link :to="`/material/${projet.slug}`">{{ projet.nom }}</router-link>
+                  <router-link :to="`/material/${materiel.matSlug}`">{{ materiel.matTitre }}</router-link>
                 </h5>
                 <p class="mb-2 text-truncate-2">{{ materiel.matDescription }}</p>
                 <!-- Rating star -->
@@ -216,14 +217,13 @@ export default {
     }
   },
   created() {
-    axios.get('http://localhost:8000/projets') // Mettez à jour avec la nouvelle URL de l'API
+    axios.get('http://localhost:8000/materiel')
         .then(response => {
-          this.materials = response.data; // Vous pourriez vouloir renommer cette variable pour refléter qu'il s'agit de projets
+          this.materials = response.data;
           console.log(this.materials);
         })
         .catch(error => console.error(error));
   }
-
 }
 </script>
 

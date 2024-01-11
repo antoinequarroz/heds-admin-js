@@ -39,7 +39,7 @@
                 </td>
                 <td class="text-center text-sm-start">1</td>
                 <td>
-                  <div class="badge bg-success bg-opacity-10 text-success">Loué</div>
+                  <div class="badge bg-orange bg-opacity-10 text-orange">Rendu</div>
                 </td>
                 <td>35.- CHF</td>
               </tr>

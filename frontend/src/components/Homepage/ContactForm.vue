@@ -90,46 +90,28 @@
       <div class="row g-4 g-sm-5 justify-content-between">
 
         <!-- Content START -->
-        <div class="col-lg-6 pt-9 col-xl-5">
+        <div class="col-lg-6 pt-xxl-9 col-xl-5">
           <!-- Title -->
           <h2>Formulaire de contact</h2>
 
-          <div class="row mt-4">
+          <div class="row mt-6">
             <!-- Item -->
             <div class="col-12 mb-5">
               <div class="d-flex align-items-center">
                 <!-- Image -->
                 <div>
                   <div class="icon-xl bg-body shadow rounded-circle">
-                    <img src="../../assets/images/element/child.svg" class="h-40px" alt="">
+                    <img src="../../assets/images/element/contact.svg" class="h-40px" alt="">
                   </div>
                 </div>
                 <!-- Title -->
                 <div class="ms-3">
-                  <h5 class="mb-0">We care about students</h5>
-                  <p class="text-truncate-2 mb-0">Man children rejoiced yet uncommonly his ten who. Yet uncommonly his ten who diminution astonished.</p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Item -->
-            <div class="col-12 mb-5">
-              <div class="d-flex align-items-center">
-                <!-- Image -->
-                <div>
-                  <div class="icon-xl bg-body shadow rounded-circle">
-                    <img src="../../assets/images/element/help.svg" class="h-40px" alt="">
-                  </div>
-                </div>
-                <!-- Title -->
-                <div class="ms-3">
-                  <h5 class="mb-0">Helping struggling students</h5>
-                  <p class="text-truncate-2 mb-0">Children rejoiced yet uncommonly his ten who. Yet uncommonly his ten who diminution astonished.</p>
+                  <h5 class="mb-0">Nous contacter</h5>
+                  <p class="text-truncate-2 mb-0">Si vous avez la moindre question, n'hésitait pas à nous contacter par ce formulaire </p>
                 </div>
               </div>
             </div>
           </div>
-
         </div>
         <!-- Content END -->
 
@@ -160,6 +142,10 @@
               <div class="col-12">
                 <label class="form-label">Numéro de téléphone *</label>
                 <input type="text" class="form-control" aria-label="Numéro de téléphone">
+              </div>
+              <div class="col-12">
+                <label class="form-label">Message *</label>
+                <input type="text" class="form-control" aria-label="message">
               </div>
               <!-- Button -->
               <div class="col-12 d-grid">

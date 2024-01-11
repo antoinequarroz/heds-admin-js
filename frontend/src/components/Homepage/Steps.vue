@@ -29,7 +29,7 @@
             </div>
             <!-- Title -->
             <h5>Choisir le matériel</h5>
-            <p class="text-truncate-2 pb-0">Man children rejoiced. Yet uncommonly his ten who diminution astonished.</p>
+            <p class="text-truncate-2 pb-0"></p>
           </div>
         </div>
 
@@ -49,7 +49,7 @@
             </div>
             <!-- Title -->
             <h5>Réserver</h5>
-            <p class="text-truncate-2 pb-0">Who diminution astonished. Yet uncommonly his ten who diminution astonished.</p>
+            <p class="text-truncate-2 pb-0"></p>
           </div>
         </div>
 
@@ -62,7 +62,7 @@
             </div>
             <!-- Title -->
             <h5>Venir chercher à la HEdS</h5>
-            <p class="text-truncate-2 pb-0">Man children rejoiced. Yet uncommonly his ten who diminution astonished.</p>
+            <p class="text-truncate-2 pb-0"></p>
           </div>
         </div>
       </div>
