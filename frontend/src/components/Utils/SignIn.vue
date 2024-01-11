@@ -75,6 +75,8 @@ export default {
         // Mise à jour de l'état de connexion
         this.$store.commit('setLoggedIn', true);
         localStorage.setItem('isLoggedIn', true);
+        this.$store.commit('setUserData', userData);
+
         // Redirection vers la page d'accueil
         this.$router.push('/');
       } catch (error) {

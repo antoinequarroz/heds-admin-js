@@ -40,6 +40,15 @@ db.getConnection((err) => {
     console.log('Connecté à la base de données MySQL');
 });
 
+app.get('/projets', (req, res) => {
+    db.query('SELECT * FROM projets', (err, results) => {
+        if (err) {
+            return res.status(500).json({ error: err.message });
+        }
+        res.json(results);
+    });
+});
+
 app.get('/materiel', (req, res) => {
     db.query('SELECT * FROM tblmateriel', (err, results) => {
         if (err) {
@@ -88,6 +97,25 @@ app.get('/materiel/download/:matSlug', (req, res) => {
         });
     });
 });
+
+app.post('/projets',
+    body('nom').notEmpty(),
+    body('description'),
+    body('type').notEmpty(),
+    async (req, res) => {
+        const { nom, description, type, image, slug } = req.body;
+        const sql = 'INSERT INTO Projets (nom, description, type, image, slug) VALUES (?, ?, ?, ?, ?)';
+        const params = [nom, description, type, image, slug];
+
+        db.query(sql, params, (error, result) => {
+            if (error) {
+                console.error('Erreur SQL:', error);
+                return res.status(500).json({ error }); // 500 = Erreur serveur
+            }
+            res.status(201).json({ message: 'Projet ajouté', projectId: result.insertId });
+        });
+    }
+);
 
 app.post('/materiel', (req, res) => {
     console.log("Requête reçue:", req.body); // Log du corps de la requête
@@ -196,7 +224,13 @@ app.post('/login', async (req, res) => {
             }
 
             // Si tout va bien, renvoyez une réponse positive
-            res.json({ message: 'Connexion réussie', userId: user.id });
+            res.json({
+                message: 'Connexion réussie',
+                userId: user.id,
+                userName: user.firstName + ' ' + user.lastName,
+                userEmail: user.email
+                // Ajoutez d'autres informations au besoin
+            });
         });
     } catch (error) {
         res.status(500).json({ error });

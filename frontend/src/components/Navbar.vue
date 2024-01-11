@@ -19,7 +19,7 @@
                 <a class="nav-link" :href="homePath">Accueil</a>
                 <a class="nav-link" :href="projetPath">Projets</a>
                 <a class="nav-link" :href="eventPath">FAQ'S</a>
-                <a class="nav-link" :href="eventPath"  v-if="isLoggedIn">Profile</a>
+                <a class="nav-link" :href="profile" v-if="isLoggedIn">Profile</a>
                 <a class="nav-link" :href="adminPath" v-if="isLoggedIn">Admin</a>
                 <a class="nav-link" @click="logout" v-if="isLoggedIn">Déconnexion</a>
                 <a class="nav-link" :href="signIn" v-else>Se connecter</a>
@@ -48,13 +48,13 @@
                       <img class="avatar-img rounded-circle shadow" src="src/assets/images/avatar/avatar99.png" alt="avatar">
                     </div>
                     <div>
-                      <a class="h6" :href="eventPath">Antoine Quarroz</a>
-                      <p class="small m-0">antoine.quarroz@hes-so.ch</p>
+                      <a class="h6" :href="eventPath">{{ userName }}</a>
+                      <p class="text-small m-0">{{ userEmail }}</p>
                     </div>
                   </div>
                 </li>
-                <li> <hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#"><i class="bi bi-person fa-fw me-2"></i>Edit Profile</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" :href="profile"><i class="bi bi-person fa-fw me-2"></i>Profile</a></li>
                 <li><a class="dropdown-item bg-danger-soft-hover li-logout" @click="logout"><i class="bi bi-power fa-fw me-2"></i>Sign Out</a></li>
               </ul>
             </div>
@@ -68,48 +68,57 @@
 <script>
 export default {
   name: "Navbar",
-    data() {
-      return {
-        logoPath: './src/assets/images/FR-DE_HEdS.png',
-        homePath: '/',
-        projetPath: '/projet',
-        scenarioPath: '/scenario',
-        eventPath: '/event',
-        adminPath: '/admin',
-        signIn: '/sign_in',
-      };
-    },
+  data() {
+    return {
+      logoPath: './src/assets/images/FR-DE_HEdS.png',
+      homePath: '/',
+      projetPath: '/projet',
+      scenarioPath: '/scenario',
+      profile: '/profile',
+      eventPath: '/event',
+      adminPath: '/admin',
+      signIn: '/sign_in',
+    };
+  },
   computed: {
     isLoggedIn() {
       return this.$store.state.isLoggedIn;
+    },
+    userName() {
+      return this.$store.state.user ? this.$store.state.user.firstName + ' ' + this.$store.state.user.lastName : 'Antoine Quarroz';
+    },
+    userEmail() {
+      return this.$store.state.user ? this.$store.state.user.email : 'antoine.quarroz@hes-so.ch';
+    },
+  },
+  methods: {
+    logout() {
+      this.$store.commit('setLoggedIn', false);
+      localStorage.removeItem('isLoggedIn');
+      this.$router.push('/');
     }
   },
-    methods: {
-      logout() {
-        this.$store.commit('setLoggedIn', false);
-        localStorage.removeItem('isLoggedIn');
-        this.$router.push('/');
-      }
-    },
+  created() {
+    this.$store.dispatch('initializeUser');
   }
+}
 </script>
 
 <style scoped>
+  .li-logout {
+    cursor: pointer;
+  }
+  .li-logout[ @click="logout" ] {
+    cursor: pointer;
+  }
+  .nav-link {
+    cursor: pointer;
+  }
+  .nav-link[ @click="logout" ] {
+    cursor: pointer;
+  }
 
-.li-logout {
-  cursor: pointer;
-}
-
-.li-logout[ @click="logout" ] {
-  cursor: pointer;
-}
-.nav-link {
-  cursor: pointer;
-}
-/* Vous pouvez également cibler spécifiquement le lien de déconnexion si nécessaire */
-.nav-link[ @click="logout" ] {
-  cursor: pointer;
-}
+  .text-small{
+    font-size: 10px;
+  }
 </style>
-
-

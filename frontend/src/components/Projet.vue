@@ -34,7 +34,7 @@
       <!-- Tab pane START -->
       <div class="tab-pane fade show active" id="course-pills-tabs-1" role="tabpanel" aria-labelledby="course-pills-tab-1">
         <div class="row g-4">
-          <div class="col-sm-6 col-lg-4 col-xl-3" v-for="materiel in filteredMaterials('1')" :key="materiel.id">
+          <div class="col-sm-6 col-lg-4 col-xl-3" v-for="projet in filteredMaterials('1')" :key="projet.id">
             <div class="card shadow h-100">
               <!-- Image -->
               <img :src="randomImageUrl" alt="Image aléatoire" />
@@ -47,9 +47,9 @@
                 </div>
                 <!-- Title -->
                 <h5 class="card-title fw-normal">
-                  <router-link :to="`/material/${materiel.matSlug}`">{{ materiel.matTitre }}</router-link>
+                  <router-link :to="`/material/${projet.slug}`">{{ projet.nom }}</router-link>
                 </h5>
-                <p class="mb-2 text-truncate-2">{{ materiel.matDescription }}</p>
+                <p class="mb-2 text-truncate-2">{{ projet.description }}</p>
 
                 <!-- Rating star -->
                 <ul class="list-inline mb-0">
@@ -60,7 +60,6 @@
               <div class="card-footer pt-0 pb-3">
                 <hr>
                 <div class="d-flex justify-content-between">
-                  <span class="h6 fw-light mb-0"><i class="fa fa-door-open text-danger me-2"></i>{{ materiel.salId }}</span>
                   <span class="h6 fw-light mb-0"><i class="fas fa-table text-orange me-2"></i>{{ materiel.matNombre }}</span>
                 </div>
               </div>
@@ -162,7 +161,7 @@
                 </div>
                 <!-- Title -->
                 <h5 class="card-title fw-normal">
-                  <router-link :to="`/material/${materiel.matSlug}`">{{ materiel.matTitre }}</router-link>
+                  <router-link :to="`/material/${projet.slug}`">{{ projet.nom }}</router-link>
                 </h5>
                 <p class="mb-2 text-truncate-2">{{ materiel.matDescription }}</p>
                 <!-- Rating star -->
@@ -217,13 +216,14 @@ export default {
     }
   },
   created() {
-    axios.get('http://localhost:8000/materiel')
+    axios.get('http://localhost:8000/projets') // Mettez à jour avec la nouvelle URL de l'API
         .then(response => {
-          this.materials = response.data;
+          this.materials = response.data; // Vous pourriez vouloir renommer cette variable pour refléter qu'il s'agit de projets
           console.log(this.materials);
         })
         .catch(error => console.error(error));
   }
+
 }
 </script>
 
