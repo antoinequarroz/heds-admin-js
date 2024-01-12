@@ -14,7 +14,7 @@
             <img class="card-img" :src="card.imageUrl" alt="">
             <div class="card-body heightCard">
               <h2 class="card-title text-center">
-                <a href="#" class="card-title">{{ card.schoolType }}</a>
+                <a :href="siteDetail" class="card-title">{{ card.schoolType }}</a>
               </h2>
             </div>
           </div>
@@ -29,6 +29,7 @@ export default {
   name: 'SiteCard',
   data() {
     return {
+      siteDetail : '/site_detail',
       cards: [
         {
           id: 1,

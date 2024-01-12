@@ -18,7 +18,7 @@
               <div class="navbar-nav">
                 <a class="nav-link" :href="homePath">Accueil</a>
                 <a class="nav-link" :href="projetPath">Projets</a>
-                <a class="nav-link" :href="eventPath">FAQ'S</a>
+                <a class="nav-link" :href="faq">FAQ'S</a>
                 <a class="nav-link" :href="profile" v-if="isLoggedIn">Profile</a>
                 <a class="nav-link" :href="adminPath" v-if="isLoggedIn">Admin</a>
                 <a class="nav-link" @click="logout" v-if="isLoggedIn">Déconnexion</a>
@@ -55,6 +55,7 @@
                 </li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" :href="profile"><i class="bi bi-person fa-fw me-2"></i>Profile</a></li>
+                <li><a class="dropdown-item" :href="reservation"><i class="bi bi-cart fa-fw me-2"></i>Panier</a></li>
                 <li><a class="dropdown-item bg-danger-soft-hover li-logout" @click="logout"><i class="bi bi-power fa-fw me-2"></i>Sign Out</a></li>
               </ul>
             </div>
@@ -78,6 +79,8 @@ export default {
       eventPath: '/event',
       adminPath: '/admin',
       signIn: '/sign_in',
+      reservation: '/reservation',
+      faq: '/faq',
     };
   },
   computed: {

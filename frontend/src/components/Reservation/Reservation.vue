@@ -38,7 +38,7 @@
                       </div>
                       <!-- Title -->
                       <h6 class="mb-0 ms-lg-3 mt-2 mt-lg-0">
-                        <a href="#">Building Scalable APIs with GraphQL</a>
+                        <a href="#">Simman Essentiel</a>
                       </h6>
                     </div>
                   </td>
@@ -49,7 +49,6 @@
                   </td>
                   <!-- Action item -->
                   <td>
-                    <a href="#" class="btn btn-sm btn-success-soft px-2 me-1 mb-1 mb-md-0"><i class="far fa-fw fa-edit"></i></a>
                     <button class="btn btn-sm btn-danger-soft px-2 mb-0"><i class="fas fa-fw fa-times"></i></button>
                   </td>
                 </tr>
@@ -71,7 +70,7 @@
             <!-- Price and detail -->
             <ul class="list-group list-group-borderless mb-2">
               <li class="list-group-item px-0 d-flex justify-content-between">
-                <span class="h6 fw-light mb-0">Original Price</span>
+                <span class="h6 fw-light mb-0">Prix</span>
                 <span class="h6 fw-light mb-0 fw-bold">300.- CHF</span>
               </li>
 

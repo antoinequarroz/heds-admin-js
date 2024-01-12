@@ -189,10 +189,10 @@ export default {
   methods: {
     getCategoryName(categoryId) {
       const categories = {
-        1: "Basse technologie",
-        2: "Moyenne technologie",
-        3: "Haute technologie",
-        4: "Petit matériels"
+        1: "Institut",
+        2: "Soins infirmier",
+        3: "Physiothérapie",
+        4: "Autre"
       };
 
       return categories[categoryId] || "Catégorie inconnue";

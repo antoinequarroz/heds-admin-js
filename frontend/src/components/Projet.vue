@@ -3,8 +3,8 @@
     <!-- Title -->
     <div class="row mb-4">
       <div class="col-lg-8 mx-auto text-center">
-        <h2 class="fs-1">Liste du matériel</h2>
-        <p class="mb-0">Liste du matériel se trouvant dans les différentes salles de nos écoles</p>
+        <h2 class="fs-1">Liste des projets</h2>
+        <p class="mb-0">Liste des projets se trouvant dans les différentes secteurs de la HEdS</p>
       </div>
     </div>
 
@@ -43,7 +43,7 @@
               <div class="card-body pb-0">
                 <!-- Badge and favorite -->
                 <div class="d-flex justify-content-between mb-2">
-                  <a class="badge bg-purple bg-opacity-10 text-purple">Basse technologie</a>
+                  <a class="badge bg-purple bg-opacity-10 text-purple">Institut</a>
                 </div>
                 <!-- Title -->
                 <h5 class="card-title fw-normal">
@@ -82,7 +82,7 @@
               <div class="card-body pb-0">
                 <!-- Badge and favorite -->
                 <div class="d-flex justify-content-between mb-2">
-                  <a class="badge bg-danger bg-opacity-10 text-danger">Moyenne technologie</a>
+                  <a class="badge bg-danger bg-opacity-10 text-danger">Soins Infirmier</a>
                 </div>
                 <!-- Title -->
                 <h5 class="card-title fw-normal">
@@ -120,7 +120,7 @@
               <div class="card-body pb-0">
                 <!-- Badge and favorite -->
                 <div class="d-flex justify-content-between mb-2">
-                  <a class="badge bg-success bg-opacity-10 text-success">Haute technologie</a>
+                  <a class="badge bg-success bg-opacity-10 text-success">Physiothérapie</a>
                 </div>
                 <!-- Title -->
                 <h5 class="card-title fw-normal">
@@ -158,7 +158,7 @@
               <div class="card-body pb-0">
                 <!-- Badge and favorite -->
                 <div class="d-flex justify-content-between mb-2">
-                  <a class="badge bg-orange bg-opacity-10 text-orange">Petit matériels</a>
+                  <a class="badge bg-orange bg-opacity-10 text-orange">Autre</a>
                 </div>
                 <!-- Title -->
                 <h5 class="card-title fw-normal">

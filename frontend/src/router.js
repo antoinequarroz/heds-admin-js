@@ -22,7 +22,9 @@ import Reservation from "./components/Reservation/Reservation.vue";
 import ReservationVide from "./components/Reservation/ReservationVide.vue";
 import Wishlist from "./components/Reservation/Wishlist.vue";
 import ComingSoon from "./components/Utils/ComingSoon.vue";
+import FAQ from "./components/FAQ.vue";
 import Profile from "./components/Profile.vue";
+import SiteDetail from "./components/SiteDetail/SiteDetail.vue";
 import EditUserProfile from "./components/UserProfile/EditUserProfile.vue";
 import DeleteUserProfile from "./components/UserProfile/DeleteUserProfile.vue";
 import DocumentsUserProfile from "./components/UserProfile/DocumentsUserProfile.vue";
@@ -54,6 +56,8 @@ const routes = [
     { path: '/wishlist', component: Wishlist, name: 'wishlist' },
     { path: '/coming_soon', component: ComingSoon, name: 'coming-soon' },
     { path: '/profile', component: Profile, name: 'profile' },
+    { path: '/faq', component: FAQ, name: 'faq' },
+    { path: '/site_detail', component: SiteDetail, name: 'site-detail' },
 ]
 
 const router = createRouter({
