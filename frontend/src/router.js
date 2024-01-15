@@ -27,6 +27,8 @@ import Profile from "./components/Profile.vue";
 import SiteDetail from "./components/SiteDetail/SiteDetail.vue";
 import Simulation from "./components/Projets/Simulation.vue";
 import Physiolab from "./components/Projets/Physiolab.vue";
+import SimulationDetails from "./components/Dashboard/Details/SimulationDetails.vue";
+import PhysiolabDetails from "./components/Dashboard/Details/PhysiolabDetails.vue";
 
 
 const routes = [
@@ -57,9 +59,9 @@ const routes = [
     { path: '/faq', component: FAQ, name: 'faq' },
     { path: '/site_detail', component: SiteDetail, name: 'site-detail' },
     { path: '/projets/simulation', component: Simulation, name: 'simulation' },
-    { path: '/projets/simulation/:slug', component: MaterialDetails, name: 'simulation-details', props: true },
+    { path: '/projets/simulation/:slug', component: SimulationDetails, name: 'simulation-details', props: true },
     { path: '/projets/physiolab', component: Physiolab, name: 'physiolab' },
-    { path: '/projets/physiolab/:slug', component: MaterialDetails, name: 'physiolab-details', props: true },
+    { path: '/projets/physiolab/:slug', component: PhysiolabDetails, name: 'physiolab-details', props: true },
 ]
 
 const router = createRouter({
