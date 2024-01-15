@@ -19,16 +19,27 @@
             <li class="nav-item nav-link active"><i class="bi bi-house fa-fw me-2"></i>Dashboard</li>
             <hr>
 
+            <h6 class="text-white">Projets</h6>
 
-            <!-- menu item 2 -->
-            <li class="nav-item"> <a class="nav-link" :href="materialListPath"><i class="fas fa-regular fa-box fa-fw me-2"></i>Materiel</a></li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="collapse" href="#collapsepage" role="button" aria-expanded="false" aria-controls="collapsepage">
+                <i class="fas fa-regular fa-box fa-fw me-2"></i>Simulation</a>
+              <ul class="nav collapse flex-column" id="collapsepage" data-bs-parent="#navabar-sidebar">
+                <li class="nav-item"><a class="nav-link" :href="materialListPath">Materiel</a></li>
+                <li class="nav-item"><a class="nav-link" :href="scenarioListPath">Scénario</a></li>
+                <li class="nav-item"><a class="nav-link" :href="eventListPath">Calendrier</a></li>
+              </ul>
+            </li>
 
-            <!-- Menu item 3 -->
-            <li class="nav-item"> <a class="nav-link" :href="scenarioListPath"><i class="fas fa-regular fa-pager fa-fw me-2"></i>Scénario</a></li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="collapse" href="#collapsepage" role="button" aria-expanded="false" aria-controls="collapsepage">
+                <i class="fas fa-regular fa-box fa-fw me-2"></i>Physiolab</a>
+              <ul class="nav collapse flex-column" id="collapsepage" data-bs-parent="#navabar-sidebar">
+                <li class="nav-item"><a class="nav-link" :href="materialListPath">Materiel</a></li>
+              </ul>
+            </li>
 
-            <!-- Menu item 4 -->
-            <li class="nav-item"> <a class="nav-link" :href="eventListPath"><i class="fas fa-calendar-day fa-fw me-2"></i>Calendrier</a></li>
-
+            <hr>
             <!-- Menu item 6 -->
             <li class="nav-item"> <a class="nav-link" :href="statistiquesPath"><i class="fas fa-align-center fa-fw me-2"></i>Statistiques</a></li>
 
