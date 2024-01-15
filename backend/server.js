@@ -210,3 +210,93 @@ app.post('/login', async (req, res) => {
         res.status(500).json({ error });
     }
 });
+
+
+app.get('/users', (req, res) => {
+    db.query('SELECT * FROM users', (err, results) => {
+        if (err) {
+            return res.status(500).json({ error: err.message });
+        }
+        res.json(results);
+    });
+});
+
+
+app.get('/simulation', (req, res) => {
+    db.query('SELECT * FROM tblsimulation', (err, results) => {
+        if (err) {
+            return res.status(500).json({ error: err.message });
+        }
+        res.json(results);
+    });
+});
+
+app.get('/simulation/:slug', (req, res) => {
+    const slug = req.params.slug;
+
+    db.query('SELECT * FROM tblsimulation WHERE slug = ?', [slug], (err, results) => {
+        if (err) {
+            return res.status(500).json({ error: err.message });
+        }
+
+        // Si aucun matériel n'est trouvé avec ce slug, renvoyez une erreur 404.
+        if (results.length === 0) {
+            return res.status(404).json({ error: 'Matériel non trouvé.' });
+        }
+
+        res.json(results[0]);
+    });
+});
+
+
+app.get('/physiolab', (req, res) => {
+    db.query('SELECT * FROM tblphysiolab', (err, results) => {
+        if (err) {
+            return res.status(500).json({ error: err.message });
+        }
+        res.json(results);
+    });
+});
+
+app.get('/physiolab/:slug', (req, res) => {
+    const slug = req.params.slug;
+
+    db.query('SELECT * FROM tblphysiolab WHERE slug = ?', [slug], (err, results) => {
+        if (err) {
+            return res.status(500).json({ error: err.message });
+        }
+
+        // Si aucun matériel n'est trouvé avec ce slug, renvoyez une erreur 404.
+        if (results.length === 0) {
+            return res.status(404).json({ error: 'Matériel non trouvé.' });
+        }
+
+        res.json(results[0]);
+    });
+});
+
+app.get('/projets', (req, res) => {
+    db.query('SELECT * FROM tblprojets', (err, results) => {
+        if (err) {
+            return res.status(500).json({ error: err.message });
+        }
+        res.json(results);
+    });
+});
+
+app.get('/projet/:slug', (req, res) => {
+    const slug = req.params.slug;
+
+    db.query('SELECT * FROM tblprojets WHERE slug = ?', [slug], (err, results) => {
+        if (err) {
+            return res.status(500).json({ error: err.message });
+        }
+
+        // Si aucun matériel n'est trouvé avec ce slug, renvoyez une erreur 404.
+        if (results.length === 0) {
+            return res.status(404).json({ error: 'Projet non trouvé.' });
+        }
+
+        res.json(results[0]);
+    });
+});

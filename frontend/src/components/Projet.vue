@@ -34,7 +34,7 @@
       <!-- Tab pane START -->
       <div class="tab-pane fade show active" id="course-pills-tabs-1" role="tabpanel" aria-labelledby="course-pills-tab-1">
         <div class="row g-4">
-          <div class="col-sm-6 col-lg-4 col-xl-3" v-for="materiel in filteredMaterials('1')" :key="materiel.id">
+          <div class="col-sm-6 col-lg-4 col-xl-3" v-for="projets in projets" :key="projets.id">
             <div class="card shadow h-100">
               <!-- Image -->
               <img :src="randomImageUrl" alt="Image aléatoire" />
@@ -47,9 +47,9 @@
                 </div>
                 <!-- Title -->
                 <h5 class="card-title fw-normal">
-                  <router-link :to="`/material/${materiel.matSlug}`">{{ materiel.matTitre }}</router-link>
+                  <router-link :to="`/projets/${projets.slug}`">{{ projets.nom }}</router-link>
                 </h5>
-                <p class="mb-2 text-truncate-2">{{ materiel.matDescription }}</p>
+                <p class="mb-2 text-truncate-2">{{ projets.dDescription }}</p>
 
                 <!-- Rating star -->
                 <ul class="list-inline mb-0">
@@ -60,8 +60,8 @@
               <div class="card-footer pt-0 pb-3">
                 <hr>
                 <div class="d-flex justify-content-between">
-                  <span class="h6 fw-light mb-0"><i class="fa fa-door-open text-danger me-2"></i>{{ materiel.salId }}</span>
-                  <span class="h6 fw-light mb-0"><i class="fas fa-table text-orange me-2"></i>{{ materiel.matNombre }}</span>
+                  <span class="h6 fw-light mb-0"><i class="fa fa-door-open text-danger me-2"></i>{{ projets.localisation }}</span>
+                  <span class="h6 fw-light mb-0"><i class="fa fa-door-open text-danger me-2"></i>{{ projets.responsable }}</span>
                 </div>
               </div>
             </div>
@@ -73,7 +73,7 @@
       <!-- Tab pane START -->
       <div class="tab-pane fade" id="course-pills-tabs-2" role="tabpanel" aria-labelledby="course-pills-tab-2">
         <div class="row g-4">
-          <div class="col-sm-6 col-lg-4 col-xl-3" v-for="materiel in filteredMaterials('2')" :key="materiel.id">
+          <div class="col-sm-6 col-lg-4 col-xl-3" v-for="projets in projets" :key="projets.id">
             <div class="card shadow h-100">
               <!-- Image -->
               <img :src="randomImageUrl" alt="Image aléatoire" />
@@ -86,9 +86,9 @@
                 </div>
                 <!-- Title -->
                 <h5 class="card-title fw-normal">
-                  <router-link :to="`/material/${materiel.matSlug}`">{{ materiel.matTitre }}</router-link>
+                  <router-link :to="`/projets/${projets.slug}`">{{ projets.nom }}</router-link>
                 </h5>
-                <p class="mb-2 text-truncate-2">{{ materiel.matDescription }}</p>
+                <p class="mb-2 text-truncate-2">{{ projets.description }}</p>
                 <!-- Rating star -->
                 <ul class="list-inline mb-0">
                   <!-- Your rating logic here -->
@@ -98,8 +98,9 @@
               <div class="card-footer pt-0 pb-3">
                 <hr>
                 <div class="d-flex justify-content-between">
-                  <span class="h6 fw-light mb-0"><i class="fa fa-door-open text-danger me-2 me-2"></i>{{ materiel.salId }}</span>
-                  <span class="h6 fw-light mb-0"><i class="fas fa-table text-orange me-2"></i>{{ materiel.matNombre }}</span>
+                  <span class="h6 fw-light mb-0"><i class="fa fa-door-open text-danger me-2 me-2"></i>{{ projets.localisation }}</span>
+                  <span class="h6 fw-light mb-0"><i class="fa fa-door-open text-danger me-2"></i>{{ projets.responsable }}</span>
+
                 </div>
               </div>
             </div>
@@ -111,7 +112,7 @@
       <!-- Tab pane START -->
       <div class="tab-pane fade" id="course-pills-tabs-3" role="tabpanel" aria-labelledby="course-pills-tab-3">
         <div class="row g-4">
-          <div class="col-sm-6 col-lg-4 col-xl-3" v-for="materiel in filteredMaterials('3')" :key="materiel.id">
+          <div class="col-sm-6 col-lg-4 col-xl-3" v-for="projets in projets" :key="projets.id">
             <div class="card shadow h-100">
               <!-- Image -->
               <img :src="randomImageUrl" alt="Image aléatoire" />
@@ -124,9 +125,9 @@
                 </div>
                 <!-- Title -->
                 <h5 class="card-title fw-normal">
-                  <router-link :to="`/material/${materiel.matSlug}`">{{ materiel.matTitre }}</router-link>
+                  <router-link :to="`/projets/${projets.slug}`">{{ projets.nom }}</router-link>
                 </h5>
-                <p class="mb-2 text-truncate-2">{{ materiel.matDescription }}</p>
+                <p class="mb-2 text-truncate-2">{{ projets.description }}</p>
                 <!-- Rating star -->
                 <ul class="list-inline mb-0">
                   <!-- Your rating logic here -->
@@ -136,8 +137,8 @@
               <div class="card-footer pt-0 pb-3">
                 <hr>
                 <div class="d-flex justify-content-between">
-                  <span class="h6 fw-light mb-0"><i class="fa fa-door-open text-danger me-2"></i>{{ materiel.salId }}</span>
-                  <span class="h6 fw-light mb-0"><i class="fas fa-table text-orange me-2"></i>{{ materiel.matNombre }}</span>
+                  <span class="h6 fw-light mb-0"><i class="fa fa-door-open text-danger me-2"></i>{{ projets.localisation }}</span>
+                  <span class="h6 fw-light mb-0"><i class="fa fa-door-open text-danger me-2"></i>{{ projets.responsable }}</span>
                 </div>
               </div>
             </div>
@@ -149,7 +150,7 @@
       <!-- Tab pane START -->
       <div class="tab-pane fade" id="course-pills-tabs-4" role="tabpanel" aria-labelledby="course-pills-tab-4">
         <div class="row g-4">
-          <div class="col-sm-6 col-lg-4 col-xl-3" v-for="materiel in filteredMaterials('4')" :key="materiel.id">
+          <div class="col-sm-6 col-lg-4 col-xl-3" v-for="projets in projets" :key="projets.id">
             <div class="card shadow h-100">
               <!-- Image -->
               <img :src="randomImageUrl" alt="Image aléatoire" />
@@ -162,9 +163,9 @@
                 </div>
                 <!-- Title -->
                 <h5 class="card-title fw-normal">
-                  <router-link :to="`/material/${materiel.matSlug}`">{{ materiel.matTitre }}</router-link>
+                  <router-link :to="`/projets/${projets.slug}`">{{ projets.nom }}</router-link>
                 </h5>
-                <p class="mb-2 text-truncate-2">{{ materiel.matDescription }}</p>
+                <p class="mb-2 text-truncate-2">{{ projets.description }}</p>
                 <!-- Rating star -->
                 <ul class="list-inline mb-0">
                   <!-- Your rating logic here -->
@@ -174,8 +175,8 @@
               <div class="card-footer pt-0 pb-3">
                 <hr>
                 <div class="d-flex justify-content-between">
-                  <span class="h6 fw-light mb-0"><i class="fa fa-door-open text-danger me-2"></i>{{ materiel.salId }}</span>
-                  <span class="h6 fw-light mb-0"><i class="fas fa-table text-orange me-2"></i>{{ materiel.matNombre }}</span>
+                  <span class="h6 fw-light mb-0"><i class="fa fa-door-open text-danger me-2"></i>{{ projets.localisation }}</span>
+                  <span class="h6 fw-light mb-0"><i class="fas fa-table text-orange me-2"></i>{{ projets.responsable }}</span>
                 </div>
               </div>
             </div>
@@ -203,24 +204,27 @@ export default {
   },
   data() {
     return {
-      materials: []
+      projets: []
     }
   },
-  methods: {
-    filteredMaterials(categoryId) {
-      return this.materials.filter(material => material.matCategorie === categoryId);
+  /* methods: {
+    filteredProjets(categoryId) {
+      return this.projet.filter(projet => projet.secteur === secteurId);
     }
   },
+  },
+
+   */
   computed: {
     randomImageUrl() {
       return 'https://img.medicalexpo.fr/images_me/photo-g/93693-17737775.webp';
     }
   },
   created() {
-    axios.get('http://localhost:8000/materiel')
+    axios.get('http://localhost:8000/projets')
         .then(response => {
-          this.materials = response.data;
-          console.log(this.materials);
+          this.projets = response.data;
+          console.log(this.projets);
         })
         .catch(error => console.error(error));
   }

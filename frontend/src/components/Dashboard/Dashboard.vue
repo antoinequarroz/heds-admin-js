@@ -22,9 +22,9 @@
             <h6 class="text-white">Projets</h6>
 
             <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" href="#collapsepage" role="button" aria-expanded="false" aria-controls="collapsepage">
+              <a class="nav-link" data-bs-toggle="collapse" href="#collapsepage1" role="button" aria-expanded="false" aria-controls="collapsepage">
                 <i class="fas fa-regular fa-box fa-fw me-2"></i>Simulation</a>
-              <ul class="nav collapse flex-column" id="collapsepage" data-bs-parent="#navabar-sidebar">
+              <ul class="nav collapse flex-column" id="collapsepage1" data-bs-parent="#navabar-sidebar">
                 <li class="nav-item"><a class="nav-link" :href="materialListPath">Materiel</a></li>
                 <li class="nav-item"><a class="nav-link" :href="scenarioListPath">Scénario</a></li>
                 <li class="nav-item"><a class="nav-link" :href="eventListPath">Calendrier</a></li>
@@ -32,9 +32,9 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" href="#collapsepage" role="button" aria-expanded="false" aria-controls="collapsepage">
+              <a class="nav-link" data-bs-toggle="collapse" href="#collapsepage2" role="button" aria-expanded="false" aria-controls="collapsepage">
                 <i class="fas fa-regular fa-box fa-fw me-2"></i>Physiolab</a>
-              <ul class="nav collapse flex-column" id="collapsepage" data-bs-parent="#navabar-sidebar">
+              <ul class="nav collapse flex-column" id="collapsepage2" data-bs-parent="#navabar-sidebar">
                 <li class="nav-item"><a class="nav-link" :href="materialListPath">Materiel</a></li>
               </ul>
             </li>

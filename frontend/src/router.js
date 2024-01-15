@@ -25,11 +25,9 @@ import ComingSoon from "./components/Utils/ComingSoon.vue";
 import FAQ from "./components/FAQ.vue";
 import Profile from "./components/Profile.vue";
 import SiteDetail from "./components/SiteDetail/SiteDetail.vue";
-import EditUserProfile from "./components/UserProfile/EditUserProfile.vue";
-import DeleteUserProfile from "./components/UserProfile/DeleteUserProfile.vue";
-import DocumentsUserProfile from "./components/UserProfile/DocumentsUserProfile.vue";
-import HomeUserProfile from "./components/UserProfile/HomeUserProfile.vue";
-import ResumStageUserProfile from "./components/UserProfile/ResumStageUserProfile.vue";
+import Simulation from "./components/Projets/Simulation.vue";
+import Physiolab from "./components/Projets/Physiolab.vue";
+
 
 const routes = [
     { path: '/', component: HomePage },
@@ -58,6 +56,10 @@ const routes = [
     { path: '/profile', component: Profile, name: 'profile' },
     { path: '/faq', component: FAQ, name: 'faq' },
     { path: '/site_detail', component: SiteDetail, name: 'site-detail' },
+    { path: '/projets/simulation', component: Simulation, name: 'simulation' },
+    { path: '/projets/simulation/:slug', component: MaterialDetails, name: 'simulation-details', props: true },
+    { path: '/projets/physiolab', component: Physiolab, name: 'physiolab' },
+    { path: '/projets/physiolab/:slug', component: MaterialDetails, name: 'physiolab-details', props: true },
 ]
 
 const router = createRouter({
