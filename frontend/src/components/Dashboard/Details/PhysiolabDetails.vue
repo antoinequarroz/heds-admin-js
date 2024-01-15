@@ -164,7 +164,7 @@ export default {
   name: 'PhysiolabDetails',
 
   props: {
-    matSlug: {
+    slug: {
       type: String,
       required: true
     }
@@ -198,14 +198,14 @@ export default {
       return categories[categoryId] || "Catégorie inconnue";
     },
     fetchMaterialDetails() {
-      axios.get(`http://localhost:8000/materiel/${this.matSlug}`)
+      axios.get(`http://localhost:8000/physiolab/${this.slug}`)
           .then(response => {
-            this.material = response.data;
+            this.physiolab = response.data;
           })
           .catch(error => {
-            console.error("There was an error fetching the material details:", error);
+            console.error("There was an error fetching the physiolab details:", error);
             if (error.response && error.response.status === 404) {
-              this.material = null; // ou vous pourriez définir un état d'erreur à afficher dans le template
+              this.physiolab = null; // ou vous pourriez définir un état d'erreur à afficher dans le template
             }
           });
     }

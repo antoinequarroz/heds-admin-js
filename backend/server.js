@@ -258,7 +258,7 @@ app.get('/physiolab', (req, res) => {
     });
 });
 
-app.get('/physiolab/:slug', (req, res) => {
+app.get('/physiolab/:id', (req, res) => {
     const slug = req.params.slug;
 
     db.query('SELECT * FROM tblphysiolab WHERE slug = ?', [slug], (err, results) => {
