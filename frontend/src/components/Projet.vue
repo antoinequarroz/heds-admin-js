@@ -49,7 +49,7 @@
                 <h5 class="card-title fw-normal">
                   <router-link :to="`/projets/${projets.slug}`">{{ projets.nom }}</router-link>
                 </h5>
-                <p class="mb-2 text-truncate-2">{{ projets.dDescription }}</p>
+                <p class="mb-2 text-truncate-2">{{ projets.description }}</p>
 
                 <!-- Rating star -->
                 <ul class="list-inline mb-0">

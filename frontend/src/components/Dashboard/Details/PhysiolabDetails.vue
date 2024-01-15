@@ -30,19 +30,19 @@
           <!-- Main content START -->
           <div class="col-xl-8">
             <!-- Title -->
-            <h1 class="mb-4">{{ material.matTitre}}</h1>
+            <h1 class="mb-4">{{ physiolab.materiel}}</h1>
 
             <!-- Rating -->
             <div class="d-flex align-items-center mb-4">
-              <h2 class="me-3 mb-0">Sion</h2>
+              <h2 class="me-3 mb-0">Loèche les bains</h2>
               <div>
-                <a class="badge bg-primary bg-opacity-10 text-primary">{{ getCategoryName(material.matCategorie) }}</a>
+                <a class="badge bg-primary bg-opacity-10 text-primary">{{ getCategoryName(physiolab.secteur) }}</a>
               </div>
             </div>
 
             <!-- Content -->
             <h5>Description</h5>
-            <p>{{ material.matDescription }}</p>
+            <p>{{ physiolab.description }}</p>
 
             <!-- Additional info -->
             <div class="row mb-3">
@@ -50,15 +50,15 @@
                 <ul class="list-group list-group-borderless">
                   <li class="list-group-item px-0">
                     <span class="h6 fw-light"><i class="fas fa-table text-primary me-2"></i>Nombre:</span>
-                    <span class="h6">{{ material.matNombre }}</span>
+                    <span class="h6">{{ physiolab.quantite }}</span>
                   </li>
                   <li class="list-group-item px-0">
                     <span class="h6 fw-light"><i class="fas fa-fw fa-door-open text-primary me-2"></i>Salle:</span>
-                    <span class="h6">{{ material.salId }}</span>
+                    <span class="h6">{{ physiolab.localisation }}</span>
                   </li>
                   <li class="list-group-item px-0">
-                    <span class="h6 fw-light"><i class="fas fa-fw fa-toolbox text-primary me-2"></i>Date de la maintenance:</span>
-                    <span class="h6">01.01.2024</span>
+                    <span class="h6 fw-light"><i class="fas fa-fw fa-toolbox text-primary me-2"></i>Date de la dernière maintenance:</span>
+                    <span class="h6">{{ physiolab.date_derniere_intervention }}</span>
                   </li>
                 </ul>
               </div>
@@ -70,11 +70,11 @@
                   </li>
                   <li class="list-group-item px-0">
                     <span class="h6 fw-light"><i class="bi fa-fw bi-eye-fill text-primary me-2"></i>ID:</span>
-                    <span class="h6">{{ material.matId }}</span>
+                    <span class="h6">{{ physiolab.id }}</span>
                   </li>
                   <li class="list-group-item px-0">
                     <span class="h6 fw-light"><i class="fa fa-tools text-primary me-2"></i>Responsable:</span>
-                    <span class="h6">Antoine Quarroz</span>
+                    <span class="h6">{{ physiolab.responsable }}</span>
                   </li>
                 </ul>
               </div>
@@ -90,7 +90,7 @@
                 </li>
                 <!-- Tab item -->
                 <li class="nav-item me-2 me-sm-4" role="presentation">
-                  <button class="nav-link mb-0" id="book-pills-tab-2" data-bs-toggle="pill" data-bs-target="#book-pills-2" type="button" role="tab" aria-controls="book-pills-2" aria-selected="false">Caractéristique</button>
+                  <button class="nav-link mb-0" id="book-pills-tab-2" data-bs-toggle="pill" data-bs-target="#book-pills-2" type="button" role="tab" aria-controls="book-pills-2" aria-selected="false">Entertien</button>
                 </li>
                 <!-- Tab item -->
                 <li class="nav-item me-2 me-sm-4" role="presentation">
@@ -124,11 +124,16 @@
                 <div class="tab-pane fade" id="book-pills-2" role="tabpanel" aria-labelledby="book-pills-tab-2">
                   <!-- Review START -->
                   <div class="row mb-4">
-                    <h4 class="mb-4">Caractéristique</h4>
+                    <h4 class="mb-4">Entretien</h4>
                     <!-- Progress-bar and star -->
                     <div class="col-md-12">
                       <div class="row align-items-center">
-                        <p>{{ material.matCaracteristique }}</p>
+                        <p>{{ physiolab.date_derniere_intervention }}</p>
+                        <p>{{ physiolab.nom_entretien }}</p>
+                        <p>{{ physiolab.entreprise_entretien }}</p>
+                        <p>{{ physiolab.telephone_entretien }}</p>
+                        <p>{{ physiolab.mail_entretien }}</p>
+                        <p>{{ physiolab.duree_garantie }}</p>
                       </div>
                     </div>
                   </div>
@@ -138,8 +143,8 @@
                 <!-- Content START -->
                 <div class="tab-pane fade" id="book-pills-3" role="tabpanel" aria-labelledby="book-pills-tab-3">
 
-                  <a :href="material.matLien" target="_blank" rel="noopener noreferrer">
-                    <p>{{ material.matLien }}</p>
+                  <a :href="physiolab.liens" target="_blank" rel="noopener noreferrer">
+                    <p>{{ physiolab.liens }}</p>
                   </a>
 
                 </div>
@@ -162,27 +167,20 @@ import axios from 'axios';
 
 export default {
   name: 'PhysiolabDetails',
-
   props: {
     slug: {
       type: String,
       required: true
     }
   },
-
   data() {
     return {
-      material: {}
+      physiolab: {},
+      randomImageUrl: 'https://img.medicalexpo.fr/images_me/photo-g/93693-17737775.webp'
     };
   },
-  computed: {
-    randomImageUrl() {
-      // Pour une image de 400x400 pixels. Modifiez les dimensions selon vos besoins.
-      return 'https://img.medicalexpo.fr/images_me/photo-g/93693-17737775.webp';
-    }
-  },
-
   created() {
+    console.log("Slug reçu:", this.slug); // Pour déboguer
     this.fetchMaterialDetails();
   },
 
@@ -203,10 +201,8 @@ export default {
             this.physiolab = response.data;
           })
           .catch(error => {
-            console.error("There was an error fetching the physiolab details:", error);
-            if (error.response && error.response.status === 404) {
-              this.physiolab = null; // ou vous pourriez définir un état d'erreur à afficher dans le template
-            }
+            console.error("Erreur lors de la récupération des détails: ", error);
+            // Afficher un message à l'utilisateur ou gérer l'erreur de manière appropriée
           });
     }
   }

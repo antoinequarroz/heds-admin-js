@@ -25,9 +25,7 @@
               <a class="nav-link" data-bs-toggle="collapse" href="#collapsepage1" role="button" aria-expanded="false" aria-controls="collapsepage">
                 <i class="fas fa-regular fa-box fa-fw me-2"></i>Simulation</a>
               <ul class="nav collapse flex-column" id="collapsepage1" data-bs-parent="#navabar-sidebar">
-                <li class="nav-item"><a class="nav-link" :href="materialListPath">Materiel</a></li>
-                <li class="nav-item"><a class="nav-link" :href="scenarioListPath">Scénario</a></li>
-                <li class="nav-item"><a class="nav-link" :href="eventListPath">Calendrier</a></li>
+                <li class="nav-item"><a class="nav-link" :href="materialSimulationListPath">Materiel</a></li>
               </ul>
             </li>
 
@@ -35,7 +33,7 @@
               <a class="nav-link" data-bs-toggle="collapse" href="#collapsepage2" role="button" aria-expanded="false" aria-controls="collapsepage">
                 <i class="fas fa-regular fa-box fa-fw me-2"></i>Physiolab</a>
               <ul class="nav collapse flex-column" id="collapsepage2" data-bs-parent="#navabar-sidebar">
-                <li class="nav-item"><a class="nav-link" :href="materialListPath">Materiel</a></li>
+                <li class="nav-item"><a class="nav-link" :href="materialPhysiolabListPath">Materiel</a></li>
               </ul>
             </li>
 
@@ -123,7 +121,8 @@ export default {
         ],
         // plus de données de graphique ici si nécessaire
       ],
-      materialListPath: "/material_list",
+      materialSimulationListPath: "/material_simulation_list",
+      materialPhysiolabListPath: "/material_physiolab_list",
       scenarioListPath: "/scenario_list",
       eventListPath: "/event_list",
       statistiquesPath: "/statistiques",

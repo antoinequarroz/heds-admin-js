@@ -258,10 +258,10 @@ app.get('/physiolab', (req, res) => {
     });
 });
 
-app.get('/physiolab/:id', (req, res) => {
+app.get('/physiolab/:slug', (req, res) => {
     const slug = req.params.slug;
 
-    db.query('SELECT * FROM tblphysiolab WHERE slug = ?', [slug], (err, results) => {
+    db.query('SELECT * FROM tblsimulation WHERE slug = ?', [slug], (err, results) => {
         if (err) {
             return res.status(500).json({ error: err.message });
         }

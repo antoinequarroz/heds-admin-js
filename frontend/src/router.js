@@ -29,6 +29,11 @@ import Simulation from "./components/Projets/Simulation.vue";
 import Physiolab from "./components/Projets/Physiolab.vue";
 import SimulationDetails from "./components/Dashboard/Details/SimulationDetails.vue";
 import PhysiolabDetails from "./components/Dashboard/Details/PhysiolabDetails.vue";
+import MaterialSimulationList from "./components/Dashboard/List/MaterialSimulationList.vue";
+import MaterialPhysiolabList from "./components/Dashboard/List/MaterialPhysiolabList.vue";
+import MaterialSimulationForm from "./components/Dashboard/Forms/MaterialSimulationForm.vue";
+import MaterialPhysiolabForm from "./components/Dashboard/Forms/MaterialPhysiolabForm.vue";
+
 
 
 const routes = [
@@ -62,6 +67,10 @@ const routes = [
     { path: '/projets/simulation/:slug', component: SimulationDetails, name: 'simulation-details', props: true },
     { path: '/projets/physiolab', component: Physiolab, name: 'physiolab' },
     { path: '/projets/physiolab/:slug', component: PhysiolabDetails, name: 'physiolab-details', props: true },
+    { path: '/material_simulation_list', component: MaterialSimulationList, name: 'material-simulation-list' },
+    { path: '/material_physiolab_list', component: MaterialPhysiolabList, name: 'material-physiolab-list' },
+    { path: '/material_simulation_form', component: MaterialSimulationForm, name: 'MaterialSimulationForm'  },
+    { path: '/material_physiolab_form', component: MaterialPhysiolabForm, name: 'MaterialPhysiolabForm'  },
 ]
 
 const router = createRouter({
