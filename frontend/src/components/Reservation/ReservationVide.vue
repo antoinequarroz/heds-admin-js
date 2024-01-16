@@ -1,6 +1,5 @@
 <template>
-  <!-- Page Banner START -->
-  Page Banner START -->
+
   <section class="py-0">
     <div class="container">
       <div class="row">

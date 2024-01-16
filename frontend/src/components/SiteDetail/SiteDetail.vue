@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-12">
           <!-- Card item START -->
-          <div class="card overflow-hidden h-400px h-xl-600px rounded-3" style="background-image:url(../../assets/images/bg/08.jpg); background-position: center left; background-size: cover;">
+          <div class="card overflow-hidden h-400px h-xl-600px rounded-3" style="background-image:url(https://www.hevs.ch/media/image/21/xlarge_2_1/agasse.jpg?4b68e73b2cd79f73bac63aa23aab22fd); background-position: center left; background-size: cover;">
             <!-- Background dark overlay -->
             <div class="bg-overlay bg-dark opacity-6"></div>
 
@@ -52,7 +52,7 @@
                 <h6 class="small">Rue:</h6>
                 <div class="d-flex align-items-center">
                   <div class="avatar align-middle flex-shrink-0">
-                    <div class="avatar-img rounded-2 bg-dark">
+                    <div class="avatar-img rounded-2 bg-info">
                       <span class="position-absolute top-50 start-50 translate-middle text-white"><i class="bi bi-geo-alt-fill"></i></span>
                     </div>
                   </div>
@@ -63,7 +63,7 @@
                 <h6 class="small">Ville:</h6>
                 <div class="d-flex align-items-center">
                   <div class="avatar align-middle flex-shrink-0">
-                    <div class="avatar-img rounded-2 bg-dark">
+                    <div class="avatar-img rounded-2 bg-orange">
                       <span class="position-absolute top-50 start-50 translate-middle text-white"><i class="bi bi-calendar-fill"></i></span>
                     </div>
                   </div>

@@ -27,7 +27,7 @@
                 <td>
                   <div class="d-flex align-items-center">
                     <div class="w-60px">
-                      <img src="../../assets/images/courses/4by3/08.jpg" class="rounded" alt="">
+                      <img src="https://laerdal.com/cdn-4937d0/globalassets/images--blocks/products/training-products/simman-essential/adwcwcfk.jpg" class="rounded" alt="">
                     </div>
                     <div class="mb-0 ms-2">
                       <h6><a href="#">SimMan Essentiel</a></h6>
@@ -67,7 +67,7 @@
                 <td>
                   <div class="d-flex align-items-center">
                     <div class="w-60px">
-                      <img src="../../assets/images/courses/4by3/08.jpg" class="rounded" alt="">
+                      <img src="https://laerdal.com/cdn-4a1029/globalassets/images--blocks/products/training-products/simman-als/_8lr7552.jpg" class="rounded" alt="">
                     </div>
                     <div class="mb-0 ms-2">
                       <h6><a href="#">SimMan ALS</a></h6>

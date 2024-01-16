@@ -8,26 +8,6 @@
       </div>
     </div>
 
-    <!-- Tabs START -->
-    <ul class="nav nav-pills nav-pills-bg-soft justify-content-sm-center mb-4 px-3" id="course-pills-tab" role="tablist">
-      <!-- Tab item -->
-      <li class="nav-item me-2 me-sm-5">
-        <button class="nav-link mb-2 mb-md-0 active" id="course-pills-tab-1" data-bs-toggle="pill" data-bs-target="#course-pills-tabs-1" type="button" role="tab" aria-controls="course-pills-tabs-1" aria-selected="true">Institut</button>
-      </li>
-      <!-- Tab item -->
-      <li class="nav-item me-2 me-sm-5">
-        <button class="nav-link mb-2 mb-md-0" id="course-pills-tab-2" data-bs-toggle="pill" data-bs-target="#course-pills-tabs-2" type="button" role="tab" aria-controls="course-pills-tabs-2"	aria-selected="false">Soins infirmier</button>
-      </li>
-      <!-- Tab item -->
-      <li class="nav-item me-2 me-sm-5">
-        <button class="nav-link mb-2 mb-md-0" id="course-pills-tab-3" data-bs-toggle="pill" data-bs-target="#course-pills-tabs-3" type="button" role="tab" aria-controls="course-pills-tabs-3" aria-selected="false">Physiothérapie</button>
-      </li>
-      <!-- Tab item -->
-      <li class="nav-item me-2 me-sm-5">
-        <button class="nav-link mb-2 mb-md-0" id="course-pills-tab-4" data-bs-toggle="pill" data-bs-target="#course-pills-tabs-4" type="button" role="tab" aria-controls="course-pills-tabs-4" aria-selected="false">Autre</button>
-      </li>
-    </ul>
-    <!-- Tabs END -->
     <br>
     <!-- Tab content START -->
     <div class="tab-content" id="course-pills-tabContent">
@@ -43,7 +23,7 @@
               <div class="card-body pb-0">
                 <!-- Badge and favorite -->
                 <div class="d-flex justify-content-between mb-2">
-                  <a class="badge bg-purple bg-opacity-10 text-purple">Institut</a>
+                  <a class="badge bg-purple bg-opacity-10 text-purple">{{ projets.secteur }}</a>
                 </div>
                 <!-- Title -->
                 <h5 class="card-title fw-normal">
@@ -60,123 +40,8 @@
               <div class="card-footer pt-0 pb-3">
                 <hr>
                 <div class="d-flex justify-content-between">
-                  <span class="h6 fw-light mb-0"><i class="fa fa-door-open text-danger me-2"></i>{{ projets.localisation }}</span>
-                  <span class="h6 fw-light mb-0"><i class="fa fa-door-open text-danger me-2"></i>{{ projets.responsable }}</span>
-                </div>
-              </div>
-            </div>
-            <!-- Card item END -->
-          </div>
-        </div>
-      </div>
-      <!-- Tab pane END -->
-      <!-- Tab pane START -->
-      <div class="tab-pane fade" id="course-pills-tabs-2" role="tabpanel" aria-labelledby="course-pills-tab-2">
-        <div class="row g-4">
-          <div class="col-sm-6 col-lg-4 col-xl-3" v-for="projets in projets" :key="projets.id">
-            <div class="card shadow h-100">
-              <!-- Image -->
-              <img :src="projets.image_url" alt="Image aléatoire" />
-
-              <!-- Card body -->
-              <div class="card-body pb-0">
-                <!-- Badge and favorite -->
-                <div class="d-flex justify-content-between mb-2">
-                  <a class="badge bg-danger bg-opacity-10 text-danger">Soins Infirmier</a>
-                </div>
-                <!-- Title -->
-                <h5 class="card-title fw-normal">
-                  <router-link :to="`/projets/${projets.slug}`">{{ projets.nom }}</router-link>
-                </h5>
-                <p class="mb-2 text-truncate-2">{{ projets.description }}</p>
-                <!-- Rating star -->
-                <ul class="list-inline mb-0">
-                  <!-- Your rating logic here -->
-                </ul>
-              </div>
-              <!-- Card footer -->
-              <div class="card-footer pt-0 pb-3">
-                <hr>
-                <div class="d-flex justify-content-between">
-                  <span class="h6 fw-light mb-0"><i class="fa fa-door-open text-danger me-2 me-2"></i>{{ projets.localisation }}</span>
-                  <span class="h6 fw-light mb-0"><i class="fa fa-door-open text-danger me-2"></i>{{ projets.responsable }}</span>
-
-                </div>
-              </div>
-            </div>
-            <!-- Card item END -->
-          </div>
-        </div>
-      </div>
-      <!-- Tab pane END -->
-      <!-- Tab pane START -->
-      <div class="tab-pane fade" id="course-pills-tabs-3" role="tabpanel" aria-labelledby="course-pills-tab-3">
-        <div class="row g-4">
-          <div class="col-sm-6 col-lg-4 col-xl-3" v-for="projets in projets" :key="projets.id">
-            <div class="card shadow h-100">
-              <!-- Image -->
-              <img :src="projets.image_url" alt="Image aléatoire" />
-
-              <!-- Card body -->
-              <div class="card-body pb-0">
-                <!-- Badge and favorite -->
-                <div class="d-flex justify-content-between mb-2">
-                  <a class="badge bg-success bg-opacity-10 text-success">Physiothérapie</a>
-                </div>
-                <!-- Title -->
-                <h5 class="card-title fw-normal">
-                  <router-link :to="`/projets/${projets.slug}`">{{ projets.nom }}</router-link>
-                </h5>
-                <p class="mb-2 text-truncate-2">{{ projets.description }}</p>
-                <!-- Rating star -->
-                <ul class="list-inline mb-0">
-                  <!-- Your rating logic here -->
-                </ul>
-              </div>
-              <!-- Card footer -->
-              <div class="card-footer pt-0 pb-3">
-                <hr>
-                <div class="d-flex justify-content-between">
-                  <span class="h6 fw-light mb-0"><i class="fa fa-door-open text-danger me-2"></i>{{ projets.localisation }}</span>
-                  <span class="h6 fw-light mb-0"><i class="fa fa-door-open text-danger me-2"></i>{{ projets.responsable }}</span>
-                </div>
-              </div>
-            </div>
-            <!-- Card item END -->
-          </div>
-        </div>
-      </div>
-      <!-- Tab pane END -->
-      <!-- Tab pane START -->
-      <div class="tab-pane fade" id="course-pills-tabs-4" role="tabpanel" aria-labelledby="course-pills-tab-4">
-        <div class="row g-4">
-          <div class="col-sm-6 col-lg-4 col-xl-3" v-for="projets in projets" :key="projets.id">
-            <div class="card shadow h-100">
-              <!-- Image -->
-              <img :src="projets.image_url" alt="Image aléatoire" />
-
-              <!-- Card body -->
-              <div class="card-body pb-0">
-                <!-- Badge and favorite -->
-                <div class="d-flex justify-content-between mb-2">
-                  <a class="badge bg-orange bg-opacity-10 text-orange">Autre</a>
-                </div>
-                <!-- Title -->
-                <h5 class="card-title fw-normal">
-                  <router-link :to="`/projets/${projets.slug}`">{{ projets.nom }}</router-link>
-                </h5>
-                <p class="mb-2 text-truncate-2">{{ projets.description }}</p>
-                <!-- Rating star -->
-                <ul class="list-inline mb-0">
-                  <!-- Your rating logic here -->
-                </ul>
-              </div>
-              <!-- Card footer -->
-              <div class="card-footer pt-0 pb-3">
-                <hr>
-                <div class="d-flex justify-content-between">
-                  <span class="h6 fw-light mb-0"><i class="fa fa-door-open text-danger me-2"></i>{{ projets.localisation }}</span>
-                  <span class="h6 fw-light mb-0"><i class="fas fa-table text-orange me-2"></i>{{ projets.responsable }}</span>
+                  <span class="h6 fw-light mb-0"><i class="fa fa-location-arrow text-info me-2"></i>{{ projets.localisation }}</span>
+                  <span class="h6 fw-light mb-0"><i class="fa fa-user text-danger me-2"></i>{{ projets.responsable }}</span>
                 </div>
               </div>
             </div>

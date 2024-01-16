@@ -34,7 +34,7 @@
                     <div class="d-lg-flex align-items-center">
                       <!-- Image -->
                       <div class="w-100px w-md-80px mb-2 mb-md-0">
-                        <img src="../../assets/images/courses/4by3/08.jpg" class="rounded" alt="">
+                        <img src="https://laerdal.com/cdn-4a1029/globalassets/images--blocks/products/training-products/simman-als/_8lr7552.jpg" class="rounded" alt="">
                       </div>
                       <!-- Title -->
                       <h6 class="mb-0 ms-lg-3 mt-2 mt-lg-0">

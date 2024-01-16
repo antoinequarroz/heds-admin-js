@@ -36,8 +36,7 @@
               <div class="card-footer pt-0 pb-3">
                 <hr>
                 <div class="d-flex justify-content-between">
-                  <span class="h6 fw-light mb-0"><i class="fa fa-door-open text-danger me-2"></i>{{ simulation.localisation }}</span>
-                  <span class="h6 fw-light mb-0"><i class="fa fa-door-open text-danger me-2"></i>{{ simulation.responsable }}</span>
+                  <span class="h6 fw-light mb-0"><i class="fa fa-user text-danger me-2"></i>{{ simulation.responsable }}</span>
                 </div>
               </div>
             </div>
