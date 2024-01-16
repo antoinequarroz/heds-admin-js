@@ -249,6 +249,50 @@ app.get('/simulation/:slug', (req, res) => {
 });
 
 
+app.post('/simulation', (req, res) => {
+    // Récupérer les données envoyées dans la requête POST
+    const {
+        reference, materiel, description, secteur, responsable,
+        date_acquisition_achat, nom_societe_achat, nom_du_contact_achat,
+        telephone_achat, mail_achat, cout, origine_fond, localisation,
+        quantite, stockage, duree_garantie, date_derniere_intervention,
+        nom_entretien, entreprise_entretien, telephone_entretien,
+        mail_entretien, liens, slug
+    } = req.body;
+
+    // Créer la requête SQL pour insérer les données
+    const sql = `
+        INSERT INTO tblsimulation (
+            reference, materiel, description, secteur, responsable,
+            date_acquisition_achat, nom_societe_achat, nom_du_contact_achat,
+            telephone_achat, mail_achat, cout, origine_fond, localisation,
+            quantite, stockage, duree_garantie, date_derniere_intervention,
+            nom_entretien, entreprise_entretien, telephone_entretien,
+            mail_entretien, liens, slug
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    `;
+
+    // Exécuter la requête SQL
+    db.query(sql, [
+        reference, materiel, description, secteur, responsable,
+        date_acquisition_achat, nom_societe_achat, nom_du_contact_achat,
+        telephone_achat, mail_achat, cout, origine_fond, localisation,
+        quantite, stockage, duree_garantie, date_derniere_intervention,
+        nom_entretien, entreprise_entretien, telephone_entretien,
+        mail_entretien, liens, slug
+    ], (error, results) => {
+        if (error) {
+            // Gérer les erreurs potentielles lors de l'insertion
+            console.error('Erreur lors de l\'insertion dans tblsimulation: ', error);
+            return res.status(500).json({ error: 'Erreur lors de l\'insertion des données' });
+        }
+        // Renvoyer une réponse positive indiquant que l'insertion a réussi
+        res.status(201).json({ message: 'Nouveau matériel ajouté avec succès à tblsimulation',
+            id: results.insertId });
+    });
+});
+
+
 app.get('/physiolab', (req, res) => {
     db.query('SELECT * FROM tblphysiolab', (err, results) => {
         if (err) {
