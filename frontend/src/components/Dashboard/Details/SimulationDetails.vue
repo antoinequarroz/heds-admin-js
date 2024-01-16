@@ -12,7 +12,7 @@
                   <div class="card shadow">
                     <!-- Image -->
                     <div class="rounded-3">
-                      <img :src="randomImageUrl" alt="Image aléatoire" />
+                      <img :src="simulation.image_url" alt="Image aléatoire" />
                     </div>
                   </div>
                   <br>
@@ -36,7 +36,7 @@
             <div class="d-flex align-items-center mb-4">
               <h2 class="me-3 mb-0">Sion</h2>
               <div>
-                <a class="badge bg-primary bg-opacity-10 text-primary">{{ getCategoryName(simulation.secteur) }}</a>
+                <a class="badge bg-primary bg-opacity-10 text-primary">{{ simulation.secteur }}</a>
               </div>
             </div>
 
@@ -176,7 +176,7 @@ export default {
   data() {
     return {
       simulation: {},
-      randomImageUrl: 'https://img.medicalexpo.fr/images_me/photo-g/93693-17737775.webp'
+      // randomImageUrl: 'https://img.medicalexpo.fr/images_me/photo-g/93693-17737775.webp'
     };
   },
   created() {

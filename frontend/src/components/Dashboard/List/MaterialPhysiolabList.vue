@@ -8,7 +8,7 @@
               <h1 class="h3 mb-2">Liste des matériels Physiolab</h1>
               <p class="mb-2">Il y a {{ physiolabs.length }} matériels Physiolab enregistrés</p>
               <div>
-                <router-link to="{ name: 'MaterialPhysiolabForm' }" class="btn btn-sm btn-primary-soft m-1">Ajouter du matériel Physiolab</router-link>
+                <router-link :to="{ name: 'MaterialPhysiolabForm' }" class="btn btn-sm btn-primary-soft m-1">Ajouter du matériel Physiolab</router-link>
                 <button class="btn btn-sm btn-secondary m-1" @click="goBack">Retour</button>
               </div>
             </div>
@@ -29,7 +29,7 @@
                 <tbody>
                 <tr v-for="item in physiolabs" :key="item.id">
                   <td>
-                    <img :src="item.imageUrl || randomImageUrl" alt="Image de matériel" />
+                    <img style="height: 60px" :src="item.image_url || randomImageUrl" alt="Image de matériel" />
                   </td>
                   <td>{{ item.id }}</td>
                   <td>{{ item.nom }}</td>

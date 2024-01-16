@@ -29,7 +29,7 @@
                 <tbody>
                 <tr v-for="item in simulations" :key="item.id">
                   <td>
-                    <img :src="randomImageUrl" alt="Image aléatoire" />
+                    <img style="height: 60px" :src="item.image_url || randomImageUrl" alt="Image de matériel" />
                   </td>
                   <td>{{ item.id }}</td>
                   <td>{{ item.materiel }}</td>

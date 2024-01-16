@@ -17,7 +17,7 @@
           <div class="col-sm-6 col-lg-4 col-xl-3" v-for="physiolab in physiolab" :key="physiolab.id">
             <div class="card shadow h-100">
               <!-- Image -->
-              <img :src="randomImageUrl" alt="Image aléatoire" />
+              <img style="height: 290px" :src="randomImageUrl" alt="Image aléatoire" />
 
               <!-- Card body -->
               <div class="card-body pb-0">

@@ -17,7 +17,7 @@
           <div class="col-sm-6 col-lg-4 col-xl-3" v-for="simulation in simulation" :key="simulation.id">
             <div class="card shadow h-100">
               <!-- Image -->
-              <img :src="randomImageUrl" alt="Image aléatoire" />
+              <img :src="simulation.image_url" style="height: 200px" alt="Image aléatoire" />
 
               <!-- Card body -->
               <div class="card-body pb-0">
@@ -70,19 +70,7 @@ export default {
       simulation: []
     }
   },
-  /* methods: {
-    filteredProjets(categoryId) {
-      return this.projet.filter(projet => projet.secteur === secteurId);
-    }
-  },
-  },
 
-   */
-  computed: {
-    randomImageUrl() {
-      return 'https://img.medicalexpo.fr/images_me/photo-g/93693-17737775.webp';
-    }
-  },
   created() {
     axios.get('http://localhost:8000/simulation')
         .then(response => {

@@ -38,7 +38,7 @@
                       </div>
                       <!-- Title -->
                       <h6 class="mb-0 ms-lg-3 mt-2 mt-lg-0">
-                        <a href="#">Simman Essentiel</a>
+                        <a href="#">SimMan ALS</a>
                       </h6>
                     </div>
                   </td>

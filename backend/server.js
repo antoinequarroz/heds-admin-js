@@ -257,7 +257,7 @@ app.post('/simulation', (req, res) => {
         telephone_achat, mail_achat, cout, origine_fond, localisation,
         quantite, stockage, duree_garantie, date_derniere_intervention,
         nom_entretien, entreprise_entretien, telephone_entretien,
-        mail_entretien, liens, slug
+        mail_entretien, liens, slug, image_url
     } = req.body;
 
     // Créer la requête SQL pour insérer les données
@@ -268,8 +268,8 @@ app.post('/simulation', (req, res) => {
             telephone_achat, mail_achat, cout, origine_fond, localisation,
             quantite, stockage, duree_garantie, date_derniere_intervention,
             nom_entretien, entreprise_entretien, telephone_entretien,
-            mail_entretien, liens, slug
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            mail_entretien, liens, slug, image_url
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `;
 
     // Exécuter la requête SQL
@@ -279,7 +279,7 @@ app.post('/simulation', (req, res) => {
         telephone_achat, mail_achat, cout, origine_fond, localisation,
         quantite, stockage, duree_garantie, date_derniere_intervention,
         nom_entretien, entreprise_entretien, telephone_entretien,
-        mail_entretien, liens, slug
+        mail_entretien, liens, slug, image_url
     ], (error, results) => {
         if (error) {
             // Gérer les erreurs potentielles lors de l'insertion

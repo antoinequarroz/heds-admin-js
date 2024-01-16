@@ -36,9 +36,9 @@
                     <img src="../../assets/images/courses/4by3/08.jpg" class="rounded" alt="">
                   </div>
                   <div class="mb-0 ms-2">
-                    <h6><a href="#">Simman Essentiel</a></h6>
+                    <h6><a href="#">SimMan ALS</a></h6>
                     <div class="d-sm-flex">
-                      <p class="h6 fw-light mb-0 small me-3"><i class="fas fa-table text-orange me-2"></i>18</p>
+                      <p class="h6 fw-light mb-0 small me-3"><i class="fas fa-table text-orange me-2"></i>1</p>
                     </div>
                   </div>
                 </div>
@@ -47,7 +47,7 @@
               <td>
                 <div class="badge bg-success bg-opacity-10 text-success">Loué</div>
               </td>
-              <td>35.- CHF</td>
+              <td>300.- CHF</td>
               <td>
                 <button class="btn btn-sm btn-danger-soft btn-round mb-0"><i class="fas fa-fw fa-times"></i></button>
               </td>

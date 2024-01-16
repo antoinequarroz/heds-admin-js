@@ -22,7 +22,9 @@
                 <a class="nav-link" :href="profile" v-if="isLoggedIn">Profile</a>
                 <a class="nav-link" :href="adminPath" v-if="isLoggedIn">Admin</a>
                 <a class="nav-link" @click="logout" v-if="isLoggedIn">Déconnexion</a>
+                <a class="nav-link" :href="reservationVide" v-if="isLoggedIn"><i class="fa fa-shopping-cart"></i></a>
                 <a class="nav-link" :href="signIn" v-else>Se connecter</a>
+
               </div>
             </div>
 
@@ -81,6 +83,7 @@ export default {
       signIn: '/sign_in',
       reservation: '/reservation',
       faq: '/faq',
+      reservationVide: '/reservation_vide',
     };
   },
   computed: {
