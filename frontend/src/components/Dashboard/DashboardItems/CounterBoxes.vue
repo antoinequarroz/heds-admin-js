@@ -22,10 +22,10 @@ export default {
   data() {
     return {
       counterBoxes: [
-        { start: 0, end: 35, title: 'Nombre de simu', bgClass: 'bg-warning bg-opacity-15', iconClass: 'fas fa-tv fa-fw', iconBgClass: 'bg-warning' },
-        { start: 0, end: 13, title: 'Simu de patient simulé', bgClass: 'bg-danger bg-opacity-10', iconClass: 'fas fa-user-nurse fa-fw', iconBgClass: 'bg-danger' },
-        { start: 0, end: 22, title: 'Simu en haute fidélité', bgClass: 'bg-primary bg-opacity-10', iconClass: 'fas fa-robot fa-fw', iconBgClass: 'bg-primary' },
-        { start: 0, end: 845, title: 'Total des heures', bgClass: 'bg-success bg-opacity-10', iconClass: 'bi bi-stopwatch-fill fa-fw', iconBgClass: 'bg-success' },
+        { start: 0, end: 48, title: 'Nombre de matériel', bgClass: 'bg-warning bg-opacity-15', iconClass: 'fas fa-tv fa-fw', iconBgClass: 'bg-warning' },
+        { start: 0, end: 81, title: 'Simulations', bgClass: 'bg-danger bg-opacity-10', iconClass: 'fas fa-user-nurse fa-fw', iconBgClass: 'bg-danger' },
+        { start: 0, end: 2, title: 'Nombre de prêts', bgClass: 'bg-primary bg-opacity-10', iconClass: 'fas fa-robot fa-fw', iconBgClass: 'bg-primary' },
+        { start: 0, end: 1, title: 'Nombre de compte', bgClass: 'bg-success bg-opacity-10', iconClass: 'fas fa-user fa-fw', iconBgClass: 'bg-success' },
       ],
     }
   },

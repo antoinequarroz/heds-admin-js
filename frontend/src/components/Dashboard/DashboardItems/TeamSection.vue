@@ -18,9 +18,7 @@
           <!-- Avatar and info -->
           <div class="d-sm-flex align-items-center mb-1 mb-sm-0">
             <!-- Avatar -->
-            <div class="avatar avatar-md flex-shrink-0">
-              <img class="avatar-img rounded-circle" :src="teamMember.avatarUrl" alt="avatar">
-            </div>
+
             <!-- Info -->
             <div class="ms-0 ms-sm-2 mt-2 mt-sm-0">
               <h6 class="mb-1">{{ teamMember.name }}<i class="bi bi-patch-check-fill text-info small ms-1"></i></h6>
@@ -45,11 +43,10 @@ export default {
     return {
       // api vers la liste des profs
       teamMembers: [
-        { name: 'Alain Berard', role: 'Coordinateur', avatarUrl: 'assets/images/avatar/09.jpg' },
+        { name: 'Maude Epiney-Perruchoud', role: 'Coordinateur', avatarUrl: 'assets/images/avatar/01.jpg' },
         { name: 'Antoine Quarroz', role: 'Médiamaticien', avatarUrl: 'assets/images/avatar/03.jpg' },
-        { name: 'Antoine Quarroz', role: 'Médiamaticien', avatarUrl: 'assets/images/avatar/01.jpg' },
-        { name: 'Antoine Quarroz', role: 'Médiamaticien', avatarUrl: 'assets/images/avatar/01.jpg' },
-        // ajoutez plus de membres d'équipe comme nécessaire
+        { name: 'Aline Chappuis', role: 'Médiamaticien', avatarUrl: 'assets/images/avatar/02.jpg' },
+        { name: 'Sébastien Puttalaz', role: 'Médiamaticien', avatarUrl: 'assets/images/avatar/01.jpg' },
       ],
     };
   },

@@ -82,7 +82,7 @@
           </div>
         </div>
         <CounterBoxes/>
-        <StatsBox :chartId="'1'" :chartData="charts[0]" :chartTitle="`Stats 1`" />
+        <StatsBox :chartId="'1'" :chartData="charts[0]" :chartTitle="`Stats Simulation 2023`" />
 
         <div class="row g-4">
           <TeamSection/>

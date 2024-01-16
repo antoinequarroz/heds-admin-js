@@ -56,12 +56,9 @@ export default {
     return {
       faqs: [
         {
-          question: "QU'EST-CE QUE LE CONTRAT PÉDAGOGIQUE TRIPARTITE ET À QUOI SERT-IL ?",
-          answer: "Le contrat pédagogique tripartite (CPT) indique les objectifs à atteindre par l’étudiant·e durant la PFP. Plus précisément, ce dernier doit servir à développer les rôles et les compétences présentés dans le référentiel de compétence.\n" +
-              "Il précise également les ressources mises à sa disposition.\n" +
-              "Ce contrat, cosigné par l’étudiant·e, la·le formateur·trice HES et le·la PF permet à chaque partie de formaliser ses attentes et de s’entendre sur les objectifs d’apprentissage visés.\n" +
-              "Unterlagen Dreiervertrag / Documents contrat tripartite\n" +
-              "Zuteilung Lehrer / Répartition répondant.e.s HES"},
+          question: "Comment enregistrer une video et la revoir sur SimCapture?",
+          answer: "Pour enregistrer une vidéo sur SimCapture, vous devez tout d'abord vous assurer que votre session est configurée pour l'enregistrement vidéo. Ensuite, lorsque vous lancez votre simulation, vous pouvez cliquer sur le bouton \"Enregistrer\" pour commencer l'enregistrement vidéo. Une fois que vous avez terminé l'enregistrement, vous pouvez accéder à la vidéo enregistrée en naviguant vers la section \"Enregistrements\" de votre session. Vous pourrez alors la revoir et la partager avec d'autres membres de votre équipe. Il est important de noter que la procédure exacte pour enregistrer et accéder à une vidéo peut varier en fonction de la configuration spécifique de votre session SimCapture."
+        },
         {
           question: "How to edit my Profile?",
           answer: "What deal evil rent by real in. But her ready least set lived spite solid. September how men saw tolerably two behavior arranging. She offices for highest and replied one venture pasture. Applauded no discovery in newspaper allowance am northward. Frequently partiality possession resolution at or appearance unaffected me. Engaged its was the evident pleased husband. Ye goodness felicity do disposal dwelling no. First am plate jokes to began to cause a scale. Subjects he prospect elegance followed no overcame possible it on. Improved own provided blessing may peculiar domestic. Sight house has sex never. No visited raising gravity outward subject my cottage Mr be."

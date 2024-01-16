@@ -90,7 +90,7 @@
                 </li>
                 <!-- Tab item -->
                 <li class="nav-item me-2 me-sm-4" role="presentation">
-                  <button class="nav-link mb-0" id="book-pills-tab-2" data-bs-toggle="pill" data-bs-target="#book-pills-2" type="button" role="tab" aria-controls="book-pills-2" aria-selected="false">Entertien</button>
+                  <button class="nav-link mb-0" id="book-pills-tab-2" data-bs-toggle="pill" data-bs-target="#book-pills-2" type="button" role="tab" aria-controls="book-pills-2" aria-selected="false">Entretien</button>
                 </li>
                 <!-- Tab item -->
                 <li class="nav-item me-2 me-sm-4" role="presentation">
@@ -122,32 +122,46 @@
 
                 <!-- Content START -->
                 <div class="tab-pane fade" id="book-pills-2" role="tabpanel" aria-labelledby="book-pills-tab-2">
-                  <!-- Review START -->
-                  <div class="row mb-4">
-                    <h4 class="mb-4">Entretien</h4>
-                    <!-- Progress-bar and star -->
-                    <div class="col-md-12">
-                      <div class="row align-items-center">
-                        <p>{{ simulation.date_derniere_intervention }}</p>
-                        <p>{{ simulation.nom_entretien }}</p>
-                        <p>{{ simulation.entreprise_entretien }}</p>
-                        <p>{{ simulation.telephone_entretien }}</p>
-                        <p>{{ simulation.mail_entretien }}</p>
-                        <p>{{ simulation.duree_garantie }}</p>
+                  <div class="container mt-4">
+                    <h4 class="text-center mb-4">Entretien</h4>
+                    <div class="row">
+                      <div class="col-md-6 mb-3">
+                        <strong><label class="form-label">Date de la dernière intervention:</label></strong>
+                        <p class="form-control-plaintext">{{ simulation.date_derniere_intervention }}</p>
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <strong><label class="form-label">Nom de l'entretien:</label></strong>
+                        <p class="form-control-plaintext">{{ simulation.nom_entretien }}</p>
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <strong><label class="form-label">Entreprise d'entretien:</label></strong>
+                        <p class="form-control-plaintext">{{ simulation.entreprise_entretien }}</p>
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <strong><label class="form-label">Téléphone d'entretien:</label></strong>
+                        <p class="form-control-plaintext">{{ simulation.telephone_entretien }}</p>
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <strong><label class="form-label">Email d'entretien:</label></strong>
+                        <p class="form-control-plaintext">{{ simulation.mail_entretien }}</p>
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <strong><label class="form-label">Durée de garantie:</label></strong>
+                        <p class="form-control-plaintext">{{ simulation.duree_garantie }}</p>
                       </div>
                     </div>
                   </div>
                 </div>
+
                 <!-- Content END -->
 
                 <!-- Content START -->
-                <div class="tab-pane fade" id="book-pills-3" role="tabpanel" aria-labelledby="book-pills-tab-3">
-
+                <div v-if="simulation && simulation.liens" class="tab-pane fade" id="book-pills-3" role="tabpanel" aria-labelledby="book-pills-tab-3">
                   <a :href="simulation.liens" target="_blank" rel="noopener noreferrer">
                     <p>{{ simulation.liens }}</p>
                   </a>
-
                 </div>
+
                 <!-- Content END -->
 
               </div>
