@@ -1,0 +1,74 @@
+[
+  {
+    "matId": 1,
+    "matTitre": "Nom de matériel",
+    "matImage": "image1.jpg",
+    "salId": "Salle 1",
+    "matNombre": 5,
+    "matCategorie": "Catégorie A",
+    "matSlug": "nom-de-materiel"
+  },
+  {
+    "matId": 2,
+    "matTitre": "Nom de matériel",
+    "matImage": "image2.jpg",
+    "salId": "Salle 2",
+    "matNombre": 5,
+    "matCategorie": "Catégorie B",
+    "matSlug": "nom-de-materiel"
+  },
+  {
+    "matId": 3,
+    "matTitre": "Nom de matériel",
+    "matImage": "image3.jpg",
+    "salId": "Salle 3",
+    "matNombre": 5,
+    "matCategorie": "Catégorie C",
+    "matSlug": "nom-de-materiel"
+  },
+  {
+    "matId": 4,
+    "matTitre": "Nom de matériel",
+    "matImage": "image4.jpg",
+    "salId": "Salle 4",
+    "matNombre": 5,
+    "matCategorie": "Catégorie D",
+    "matSlug": "nom-de-materiel"
+  },
+  {
+    "matId": 5,
+    "matTitre": "Nom de matériel",
+    "matImage": "image5.jpg",
+    "salId": "Salle 5",
+    "matNombre": 5,
+    "matCategorie": "Catégorie E",
+    "matSlug": "nom-de-materiel"
+  },
+  {
+    "matId": 6,
+    "matTitre": "Nom de matériel",
+    "matImage": "image6.jpg",
+    "salId": "Salle 6",
+    "matNombre": 5,
+    "matCategorie": "Catégorie F",
+    "matSlug": "nom-de-materiel"
+  },
+  {
+    "matId": 7,
+    "matTitre": "Nom de matériel",
+    "matImage": "image7.jpg",
+    "salId": "Salle 7",
+    "matNombre": 5,
+    "matCategorie": "Catégorie G",
+    "matSlug": "nom-de-materiel"
+  },
+  {
+    "matId": 8,
+    "matTitre": "Nom de matériel",
+    "matImage": "image8.jpg",
+    "salId": "Salle 8",
+    "matNombre": 5,
+    "matCategorie": "Catégorie G",
+    "matSlug": "nom-de-materiel"
+  }
+]
